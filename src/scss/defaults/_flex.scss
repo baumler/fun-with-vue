@@ -1,0 +1,23 @@
+// ↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔
+//    Flex Styles
+// ↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔↔
+.flex {
+  display: flex;
+
+  &-column {
+    flex-direction: column;
+  }
+
+  &-justify {
+    &-between {
+      justify-content: space-between;
+    }
+  }
+
+  &-align {
+    &-stretch {
+      align-items: stretch;
+    }
+  }
+}
+
