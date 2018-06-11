@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import ResponsiveImage from 'vue-responsive-image'
+import ResponsiveImage from 'vue-responsive-image';
 
 export default {
   components: {
     ResponsiveImage
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

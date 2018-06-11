@@ -28,5 +28,7 @@ module.exports = {
 		/* 'no-tabs': 'off',
 		'indent': ['error', 'tab'], */
 		'space-before-function-paren': 'off',
+    // keep semi colons after lines
+    'semi': ["error", "always"]
 	}
 }

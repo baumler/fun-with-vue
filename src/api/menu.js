@@ -1,5 +1,5 @@
-import axios from 'axios'
-axios.defaults.baseURL = 'https://apx-staging.novadine.com/mp/ndXTAL/'
+import axios from 'axios';
+axios.defaults.baseURL = 'https://apx-staging.novadine.com/mp/ndXTAL/';
 
 const Menu = {
   getMenus() {
@@ -10,12 +10,12 @@ const Menu = {
         }
       })
         .then((response) => {
-          resolve(response.data)
+          resolve(response.data);
         })
         .catch((error) => {
-          reject(error)
-        })
-    })
+          reject(error);
+        });
+    });
   },
   getMenuCategories() {
     return new Promise((resolve, reject) => {
@@ -27,12 +27,12 @@ const Menu = {
         }
       })
         .then((response) => {
-          resolve(response.data)
+          resolve(response.data);
         })
         .catch((error) => {
-          reject(error)
-        })
-    })
+          reject(error);
+        });
+    });
   },
   getMenuCatItems(obj) {
     return new Promise((resolve, reject) => {
@@ -48,13 +48,13 @@ const Menu = {
         }
       })
         .then((response) => {
-          resolve(response.data)
+          resolve(response.data);
         })
         .catch((error) => {
-          reject(error)
-        })
-    })
+          reject(error);
+        });
+    });
   }
-}
+};
 
-export default Menu
+export default Menu;

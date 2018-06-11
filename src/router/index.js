@@ -1,13 +1,13 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from '@/pages/Home'
-import SideMenu from '@/pages/SideMenu'
-import Draggable from '@/pages/Draggable'
-import Images from '@/pages/Images'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from '@/pages/Home';
+import SideMenu from '@/pages/SideMenu';
+import Draggable from '@/pages/Draggable';
+import Images from '@/pages/Images';
 
-Vue.use(Router)
+Vue.use(Router);
 
-const siteTitle = 'Vue fun'
+const siteTitle = 'Vue fun';
 
 const router = new Router({
   routes: [
@@ -46,10 +46,10 @@ const router = new Router({
     }
   ],
   linkExactActiveClass: 'active'
-})
+});
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title // change title
+  document.title = to.meta.title; // change title
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.
@@ -62,7 +62,7 @@ router.beforeEach((to, from, next) => {
       next()
     } */
   }
-  next()
-})
+  next();
+});
 
-export default router
+export default router;

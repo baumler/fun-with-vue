@@ -12,13 +12,15 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "epic-spinners": "^1.0.3",
     "lodash": "^4.17.10",
     "vue": "^2.5.2",
     "vue-affix": "^0.2.4",
     "vue-responsive-image": "^0.1.2",
     "vue-router": "^3.0.1",
     "vue-scrollactive": "^0.6.1",
-    "vuedraggable": "^2.16.0"
+    "vuedraggable": "^2.16.0",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

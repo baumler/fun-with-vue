@@ -12,20 +12,20 @@
 export default {
   computed: {
     routes() {
-      const routes = []
+      const routes = [];
       for (let i in this.$router.options.routes) {
         if (!this.$router.options.routes.hasOwnProperty(i)) {
-          continue
+          continue;
         }
-        const route = this.$router.options.routes[i]
+        const route = this.$router.options.routes[i];
         if (route.hasOwnProperty('name')) {
-          routes.push(route)
+          routes.push(route);
         }
       }
-      return routes
+      return routes;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

@@ -32,8 +32,9 @@
 </template>
 
 <script>
-import API from '@/api/menu'
-import MenuListItem from '@/components/menu/MenuListItem'
+import { mapActions } from 'vuex';
+import API from '@/api/menu';
+import MenuListItem from '@/components/menu/MenuListItem';
 
 export default {
   data () {
@@ -41,45 +42,51 @@ export default {
       isLoaded: false,
       cats: [],
       menuCats: []
-    }
+    };
   },
   components: {
     MenuListItem
   },
   methods: {
+    ...mapActions([
+      'showLoader',
+      'hideLoader'
+    ]),
     menuItems(category) {
       this.cats.forEach((cat) => {
         if (cat.catid === category.catid) {
-          cat.childItems = category.variants[0].pick_lists
+          cat.childItems = category.variants[0].pick_lists;
         }
-      })
+      });
     }
   },
-  beforeMount() {
+  mounted() {
+    this.showLoader();
     API.getMenuCategories()
       .then((result) => {
-        console.log(result)
+        console.log(result);
         result.forEach((cat) => {
           if (cat.bulk_itemid !== null) {
-            this.cats.push(cat)
+            this.cats.push(cat);
 
             API.getMenuCatItems({ catId: cat.catid, itemId: cat.bulk_itemid })
               .then((response) => {
-                this.menuCats.push('done')
-                this.menuItems(response)
+                this.menuCats.push('done');
+                this.menuItems(response);
 
                 if (this.menuCats.length === this.cats.length) {
-                  console.log('hey')
-                  this.isLoaded = true
+                  console.log('hey');
+                  this.hideLoader();
+                  this.isLoaded = true;
                 }
               })
-              .catch((err) => console.log(err))
+              .catch((err) => console.log(err));
           }
-        })
+        });
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err));
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

@@ -14,6 +14,18 @@ html, body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+html.-isLocked {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+
+	body {
+		position: fixed;
+		width: 100vw;
+	}
+}
+
 body {
   margin-top: 50px;
 }

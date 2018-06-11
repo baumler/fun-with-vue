@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import Draggable from 'vuedraggable'
+import Draggable from 'vuedraggable';
 
 export default {
   data() {
@@ -97,19 +97,19 @@ export default {
           order: 2
         }
       ]
-    }
+    };
   },
   methods: {
     update() {
       for (let i in this.books) {
-        this.books[i].order = i
+        this.books[i].order = i;
       }
     }
   },
   components: {
     Draggable
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
