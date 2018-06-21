@@ -3,10 +3,10 @@
     <div class="item-image" :style="`background-image: url(${item.image_urls.standard})`"></div>
     <h3>{{ item.name }}</h3>
     <div>{{ item.price }}</div>
-    <div class="action-buttons">
+    <!--<div class="action-buttons">
       <button>View Details</button>
       <button>Quick Add</button>
-    </div>
+    </div>-->
   </li>
 </template>
 

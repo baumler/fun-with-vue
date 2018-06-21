@@ -8,12 +8,13 @@
     @media screen and (min-width: 768px) {
       display: block;
       flex: none;
-      width: 35%;
+      // width: 25%;
+      width: 300px;
       padding: 1rem;
       border-right: 1px solid black;
 
       &-content {
-        width: 300px;
+        width: calc(300px - 2rem);
       }
     }
 	}

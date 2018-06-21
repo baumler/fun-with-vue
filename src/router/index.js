@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from '@/pages/Home';
 import SideMenu from '@/pages/SideMenu';
 import Draggable from '@/pages/Draggable';
+import StyleGuide from '@/pages/StyleGuide';
 import Images from '@/pages/Images';
 
 Vue.use(Router);
@@ -42,6 +43,14 @@ const router = new Router({
       component: Images,
       meta: {
         title: `${siteTitle} - Images`
+      }
+    },
+    {
+      path: '/styleguide',
+      name: 'StyleGuide',
+      component: StyleGuide,
+      meta: {
+        title: `${siteTitle} - StyleGuide`
       }
     }
   ],
