@@ -4,7 +4,8 @@ import Home from '@/pages/Home';
 import SideMenu from '@/pages/SideMenu';
 import Draggable from '@/pages/Draggable';
 import StyleGuide from '@/pages/StyleGuide';
-import Images from '@/pages/Images';
+// import Images from '@/pages/Images';
+import VueLibList from '@/pages/VueLibList';
 
 Vue.use(Router);
 
@@ -37,20 +38,28 @@ const router = new Router({
         title: `${siteTitle} - Draggable`
       }
     },
-    {
+    /* {
       path: '/images',
       name: 'Images',
       component: Images,
       meta: {
         title: `${siteTitle} - Images`
       }
-    },
+    }, */
     {
       path: '/styleguide',
       name: 'StyleGuide',
       component: StyleGuide,
       meta: {
         title: `${siteTitle} - StyleGuide`
+      }
+    },
+    {
+      path: '/vueliblist',
+      name: 'VueLibList',
+      component: VueLibList,
+      meta: {
+        title: `${siteTitle} - VueLibList`
       }
     }
   ],

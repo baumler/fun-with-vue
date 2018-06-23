@@ -8,8 +8,20 @@
   background: lightblue;
   border: 1px solid black;
   border-radius: 6px;
+  opacity: 1;
+  transistion: opacity 0.5s;
 
   span {
     margin-left: 0.5rem;
+  }
+
+  &:hover, &:focus {
+    opacity: 0.8;
+  }
+
+  &.-alt {
+    color: black;
+    background: transparent;
+    border-color: transparent;
   }
 }

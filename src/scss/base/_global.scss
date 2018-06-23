@@ -30,6 +30,13 @@ body {
   margin-top: 50px;
 }
 
+#app {
+	@include breakpoint(xLarge) {
+		max-width: 1440px;
+    margin: auto;
+	}
+}
+
 a {
 	color: green;
 	text-decoration: none;
@@ -46,14 +53,24 @@ a {
   right: 0;
   background-color: white;
   border-bottom: 2px solid green;
+  z-index: map_get($zIndexing, fixed);
 }
 
 .padding {
   padding: 1rem;
 
-	.item {
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid black;
-	}
+  .myImg {
+    max-width: 100%;
+  }
+
+  .smallImage {
+    width: 400px;
+    height: 200px;
+    background-color: green;
+  }
+
+  .background {
+    width: 300px;
+    height: 300px;
+  }
 }

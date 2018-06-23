@@ -1,0 +1,67 @@
+label {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-bottom: 2em;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: normal;
+  text-transform: none;
+
+  &.error {
+    label {
+      margin-bottom: 0;
+    }
+
+    input, select, textarea {
+      border-color: red;
+    }
+
+    .selectDiv { // div around selects that hold the border
+      border-color: red;
+    }
+
+    .errorMessage {
+      margin-left: 0.5em;
+      padding-top: 0.5em;
+      color: red;
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+}
+
+.label {
+  text-transform: uppercase;
+}
+
+input, select, textarea {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-top: 0.5rem;
+
+  &::placeholder {
+    color: #656565;
+  }
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 0.5em 0.5em;
+}
+
+select {
+  padding: 11px 10px;
+  margin-top: .5rem;
+}
+
+textarea {
+  padding: 1em 0.5em;
+}
+
+

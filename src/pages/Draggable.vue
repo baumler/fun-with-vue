@@ -25,7 +25,7 @@
       <h3>Can only drag from icon (drag handle)</h3>
       <draggable v-model="games" :options="{handle: '.dragMe'}">
         <transition-group name="list-complete">
-          <div v-for="game in games" :key="game.id" class="list-item drag-handle"><img class="dragMe" src="https://png.icons8.com/metro/50/000000/drag-reorder.png"> &nbsp; {{game.order}}. {{game.title}} (id: {{game.id}})</div>
+          <div v-for="game in games" :key="game.id" class="list-item drag-handle"><span class="dragMe"><font-awesome-icon icon="ellipsis-v"/></span> {{game.order}}. {{game.title}} (id: {{game.id}})</div>
         </transition-group>
       </draggable>
     </div>
@@ -112,7 +112,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .list-item {
     display: flex;
     align-items: center;
@@ -130,7 +130,9 @@ export default {
       cursor: auto;
 
       .dragMe {
-        height: 20px;
+        padding: 0 4px;
+        // height: 20px;
+        margin-right: 8px;
         cursor: grab;
       }
     }

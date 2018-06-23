@@ -7,8 +7,13 @@
 </template>
 
 <script>
+import { Validator } from 'vee-validate';
+import dictionary from './validation';
+
 import Loading from '@/components/Loading';
 import PageHeader from '@/components/PageHeader';
+
+Validator.localize(dictionary);
 
 export default {
   components: {

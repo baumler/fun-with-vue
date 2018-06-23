@@ -1,20 +1,26 @@
 import Vue from 'vue';
 import Affix from 'vue-affix';
 import ScrollActive from 'vue-scrollactive';
+import VeeValidate from 'vee-validate';
+import { sync } from 'vuex-router-sync'; // adds module to vuex store
+import Prism from 'vue-prism';
+// css files
+import 'prismjs/themes/prism.css'; // must have the css or create your own
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faAngleRight, faAngleDown, faEllipsisV } from '@fortawesome/free-solid-svg-icons'; // add all icons you want to use and copy them to the library below
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
 import App from './App';
 import router from './router';
 import store from './store';
-import Prism from 'vue-prism';
-import 'prismjs/themes/prism.css';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faAngleRight, faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faAngleRight, faAngleDown);
+library.add(faAngleRight, faAngleDown, faEllipsisV); // for font-awesome
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;
 
+Vue.use(VeeValidate);
 Vue.use(Affix);
 Vue.use(ScrollActive);
 Vue.use(Prism);
@@ -28,3 +34,5 @@ new Vue({
   template: '<App/>'
 });
 /* eslint-enable no-new */
+
+sync(store, router, { moduleName: 'routeModule' });

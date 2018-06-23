@@ -1,0 +1,24 @@
+// 480px, 768px, 1152px, 1440px
+$breakpoints: (
+  base: 0,
+  small: 30rem,
+  medium: 48rem,
+  large: 72rem,
+  xLarge: 90rem
+);
+
+$maxWidth: 1440px;
+
+$columns: (
+  1: 100%,
+  2: 47%,
+  3: 30%,
+  4: 22%
+);
+
+$zIndexing: (
+  base: 1,
+  fixed: 100,
+  overlay: 110,
+  modal: 115
+);

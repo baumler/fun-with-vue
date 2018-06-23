@@ -1,0 +1,54 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  @each $key, $value in $columns {
+    &.-max#{$key} {
+      & > * {
+        width: #{$value};
+        flex-basis: auto;
+        flex-grow: 1;
+        margin: 1rem 1rem 0 0;
+
+        &:nth-child(#{$key}n) {
+          margin-right: 0;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  @supports(display: grid) {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    @each $key, $value in $columns {
+      &.-max#{$key} {
+        grid-template-columns: repeat(auto-fit, minmax(#{$value}, 1fr));
+
+        & > * {
+          margin: 0;
+          width: auto;
+        }
+      }
+    }
+
+    &.-bordered {
+      grid-gap: 1px;
+      background-color: black;
+
+      & > * {
+        padding: 1rem;
+        background-color: white;
+      }
+    }
+
+    .-spanCols2 {
+      grid-column: span 2;
+    }
+  }
+}
+
