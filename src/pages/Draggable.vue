@@ -112,7 +112,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .list-item {
     display: flex;
     align-items: center;

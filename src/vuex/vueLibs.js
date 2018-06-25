@@ -2,11 +2,18 @@ const state = {
   libsUsed: [
     {
       url: 'https://github.com/eddiemf/vue-affix',
-      title: 'vue-affix'
+      title: 'vue-affix',
+      desc: 'Used on Panda'
     },
     {
       url: 'https://github.com/eddiemf/vue-scrollactive',
-      title: 'vue-scrollactive'
+      title: 'vue-scrollactive',
+      desc: 'Used on Panda'
+    },
+    {
+      url: 'https://github.com/baianat/vee-validate',
+      title: 'vee-validate',
+      desc: 'Used on Panda'
     },
     {
       url: 'https://github.com/Botre/vue-sauce',
@@ -17,16 +24,48 @@ const state = {
       title: 'vue-prism'
     },
     {
-      url: 'https://github.com/baianat/vee-validate',
-      title: 'vee-validate'
-    },
-    {
       url: 'https://github.com/SortableJS/Vue.Draggable',
       title: 'vuedraggable'
     },
     {
       url: 'https://github.com/FortAwesome/vue-fontawesome',
       title: 'vue-fontawesome'
+    },
+    {
+      url: 'https://github.com/vue-bulma/click-outside',
+      title: 'vue-click-outside',
+      desc: 'Used on Panda'
+    },
+    {
+      url: 'https://github.com/KABBOUCHI/vue-tippy',
+      title: 'vue-tippy',
+      desc: 'Used on Panda'
+    },
+    /* {
+      url: 'https://github.com/robinvdvleuten/vuex-persistedstate',
+      title: 'vuex-persistedstate'
+    }, */
+    /* {
+      url: 'https://github.com/raniesantos/vue-error-page',
+      title: 'vue-error-page'
+    }, */
+    /* {
+      url: 'https://github.com/hilongjw/vue-lazyload',
+      title: 'vue-lazyload'
+    }, */
+    /* {
+      url: 'https://github.com/theKashey/vue-focus-lock',
+      title: 'vue-focus-lock',
+      desc: 'a a11y component'
+    }, */
+    /* {
+      url: 'https://github.com/IBM/vue-a11y-calendar',
+      title: 'vue-a11y-calendar',
+      desc: 'a a11y component'
+    }, */
+    {
+      url: 'https://github.com/bkzl/vue-float-label',
+      title: 'vue-float-label'
     }
   ]
 };

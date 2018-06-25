@@ -2,7 +2,6 @@
   <div class="textCentered">
     <h1>Tyler's Fun with Vue.js</h1>
     <img src="../assets/logo.png"/>
-    <h2>Have Fun!</h2>
   </div>
 </template>
 

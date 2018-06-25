@@ -1,38 +1,60 @@
 <template>
   <div class="content">
-    <h1>Vue Libraries</h1>
+    <h1 class="textCentered">Vue Libraries</h1>
     <div class="lists">
       <h3>Vue Libraries I still want to example here</h3>
-      <draggable v-model="remaining" :options="{group:'movies'}" class="dragArea" @update="update">
-        <div v-for="remain in remaining" :key="remain.title" class="list-item drag-handle"><span class="dragMe"><font-awesome-icon icon="ellipsis-v"/></span>{{remain.title}} (<a :href="remain.url">url</a>)</div>
-      </draggable>
-      <h4>All Vue Libraries used on this site</h4>
-      <draggable v-model="completed" :options="{group:'movies'}" class="dragArea">
-        <div v-for="lib in completed" :key="lib.title" class="list-item">{{lib.title}} (<a :href="lib.url">url</a>)</div>
-      </draggable>
+      <ul>
+        <li v-for="remain in remaining" :key="remain.title" class="list-item">
+          <div>
+            {{remain.title}} (<a :href="remain.url">url</a>)
+            <font-awesome-icon icon="arrow-right" v-if="remain.desc"></font-awesome-icon>
+            <span v-if="remain.desc">{{remain.desc}}</span>
+          </div>
+        </li>
+        <li>Pretty much want to try out all the <a href="https://github.com/vuejs/awesome-vue#a11y">a11y items on vue-awesome</a></li>
+      </ul>
+      <h3>All Vue Libraries used on this site</h3>
+      <ul>
+        <li v-for="lib in completed" :key="lib.title" class="list-item">
+          <div>
+            {{lib.title}} (<a :href="lib.url">url</a>)
+            <font-awesome-icon icon="arrow-right" v-if="lib.desc"></font-awesome-icon>
+            <span v-if="lib.desc">{{lib.desc}}</span>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-import Draggable from 'vuedraggable';
+import { mapState } from 'vuex';
 
 export default {
   data() {
     return {
       remaining: [
-        {
-          url: 'https://github.com/vue-bulma/click-outside',
-          title: 'vue-click-outside'
-        },
-        {
-          url: 'https://github.com/KABBOUCHI/vue-tippy',
-          title: 'vue-tippy'
-        },
-        {
+        /* {
           url: 'https://github.com/robinvdvleuten/vuex-persistedstate',
           title: 'vuex-persistedstate'
+        }, */
+        {
+          url: 'https://github.com/raniesantos/vue-error-page',
+          title: 'vue-error-page'
+        },
+        {
+          url: 'https://github.com/hilongjw/vue-lazyload',
+          title: 'vue-lazyload'
+        },
+        {
+          url: 'https://github.com/theKashey/vue-focus-lock',
+          title: 'vue-focus-lock',
+          desc: 'a a11y component'
+        },
+        {
+          url: 'https://github.com/IBM/vue-a11y-calendar',
+          title: 'vue-a11y-calendar',
+          desc: 'a a11y component'
         }
       ]
     };
@@ -43,47 +65,34 @@ export default {
     })
   },
   methods: {
-    ...mapActions([]),
     update(t) {
       console.log(t, t.target);
     }
-  },
-  components: {
-    Draggable
   }
 };
 </script>
 
-<style lang="scss">
-  .list-item {
-    display: flex;
-    align-items: center;
+<style lang="scss" scoped>
+  .content {
     padding: 1rem;
-    background-color: lightgray;
-    border-bottom: 1px solid black;
-    transition: all 1s;
-    cursor: grab;
+  }
 
-    &:first-of-type {
-      border-top: 1px solid black;
-    }
+  .list-item {
+    padding: 0.5rem 0;
 
-    &.drag-handle {
-      cursor: auto;
+    > div {
+      display: flex;
+      align-items: center;
 
-      .dragMe {
-        padding: 0 4px;
-        margin-right: 8px;
-        cursor: grab;
+      span,
+      svg {
+        font-size: 0.8rem;
+      }
+
+      svg {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
       }
     }
-  }
-
-  .dragArea {
-    min-height: 10px;
-  }
-
-  .list-complete-enter, .list-complete-leave-active {
-    opacity: 0.25;
   }
 </style>

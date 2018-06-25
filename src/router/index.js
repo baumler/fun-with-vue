@@ -6,6 +6,7 @@ import Draggable from '@/pages/Draggable';
 import StyleGuide from '@/pages/StyleGuide';
 // import Images from '@/pages/Images';
 import VueLibList from '@/pages/VueLibList';
+import TippyClicky from '@/pages/TippyClicky';
 
 Vue.use(Router);
 
@@ -46,6 +47,14 @@ const router = new Router({
         title: `${siteTitle} - Images`
       }
     }, */
+    {
+      path: '/tippyclicky',
+      name: 'TippyClicky',
+      component: TippyClicky,
+      meta: {
+        title: `${siteTitle} - TippyClicky`
+      }
+    },
     {
       path: '/styleguide',
       name: 'StyleGuide',

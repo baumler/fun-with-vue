@@ -21,23 +21,25 @@
       </div>
 
       <div class="item">
+        <p>This input has validation</p>
         <label for="first_name" :class="{'error' : errors.has('first name')}" v-sauce="'html'">
-          First Name
-          <input type="text" id="first_name" name="first name" aria-label="First name" v-model="first_name" placeholder="First Name"/>
+          <span class="label">First Name</span>
+          <input type="text" id="first_name" name="first name" aria-label="First name" v-model="first_name" placeholder="First Name" v-validate="'required'"/>
           <div v-show="errors.has('first name')" class="errorMessage">{{ errors.first('first name') }}</div>
         </label>
       </div>
 
       <div class="item">
-        <input-text i-id="fName" i-name="first name comp" i-label="First Name Component" v-sauce="'html'">
+        <p>This input is a component and has validation</p>
+        <input-text i-id="last_name" i-name="last name comp" i-label="Last Name" v-sauce="'html'">
           <input
               slot="input"
               type="text"
-              id="fName"
-              name="first name comp"
-              aria-label="First Name Component"
-              placeholder="First Name (from component)"
-              v-model="comp_first_name"
+              id="last_name"
+              name="last name comp"
+              aria-label="Last Name"
+              placeholder="Last Name"
+              v-model="last_name"
               v-validate="'required'"/>
         </input-text>
       </div>
@@ -61,7 +63,7 @@ export default {
   data() {
     return {
       first_name: '',
-      comp_first_name: 'Bobby'
+      last_name: 'Smith'
     };
   }
 };
