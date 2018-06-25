@@ -6,8 +6,8 @@
       <a :href="usedhere[2].url">{{usedhere[2].title}}</a>
     </h1>
     <h3>Click on the button to toggle the menu (then click outside the menu to see it close)</h3>
-    <div class="menu">
-      <button class="btn" v-click-outside="hideMenuContainer" @click="toggleMenuContainer">Menu</button>
+    <div class="menu" v-click-outside="hideMenuContainer">
+      <button class="btn" @click="toggleMenuContainer">Menu</button>
       <div v-show="showMenuContainer" class="menuContainer">
         <ul>
           <li v-for="p in 5" :key="p">{{p}}. Item</li>
