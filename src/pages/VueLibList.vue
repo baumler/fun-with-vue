@@ -40,7 +40,8 @@ export default {
         }, */
         {
           url: 'https://github.com/raniesantos/vue-error-page',
-          title: 'vue-error-page'
+          title: 'vue-error-page',
+          desc: 'not working correctly'
         },
         {
           url: 'https://github.com/hilongjw/vue-lazyload',

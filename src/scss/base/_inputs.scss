@@ -37,9 +37,11 @@ label {
 }
 
 input, select, textarea {
+  margin-top: 0.5rem;
+  font-size: 16px;
+  font-weight: 200;
   border: 1px solid black;
   border-radius: 3px;
-  margin-top: 0.5rem;
 
   &::placeholder {
     color: #656565;
@@ -49,10 +51,7 @@ input, select, textarea {
 input {
   display: block;
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: 200;
-  padding: 0.5em 0.5em;
+  padding: 0.5em;
 }
 
 select {
@@ -61,7 +60,7 @@ select {
 }
 
 textarea {
-  padding: 1em 0.5em;
+  padding: 0.5em;
 }
 
 

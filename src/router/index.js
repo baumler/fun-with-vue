@@ -7,6 +7,7 @@ import StyleGuide from '@/pages/StyleGuide';
 // import Images from '@/pages/Images';
 import VueLibList from '@/pages/VueLibList';
 import TippyClicky from '@/pages/TippyClicky';
+// import Profile from '@/pages/Profile';
 
 Vue.use(Router);
 
@@ -63,6 +64,14 @@ const router = new Router({
         title: `${siteTitle} - StyleGuide`
       }
     },
+    /* {
+      path: '/profile',
+      name: 'Profile',
+      component: Profile,
+      meta: {
+        title: `${siteTitle} - Profile`
+      }
+    }, */
     {
       path: '/vueliblist',
       name: 'VueLibList',
