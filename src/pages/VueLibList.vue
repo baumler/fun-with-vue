@@ -11,7 +11,7 @@
             <span v-if="remain.desc">{{remain.desc}}</span>
           </div>
         </li>
-        <li>Pretty much want to try out all the <a href="https://github.com/vuejs/awesome-vue#a11y">a11y items on vue-awesome</a></li>
+        <li class="list-item">Pretty much want to try out all the <a href="https://github.com/vuejs/awesome-vue#a11y">a11y items on vue-awesome</a></li>
       </ul>
       <h3>All Vue Libraries used on this site</h3>
       <ul>
@@ -38,6 +38,10 @@ export default {
           url: 'https://github.com/robinvdvleuten/vuex-persistedstate',
           title: 'vuex-persistedstate'
         }, */
+        {
+          url: 'https://github.com/intera/vue-zoom-on-hover',
+          title: 'vue-zoom-on-hover'
+        },
         {
           url: 'https://github.com/raniesantos/vue-error-page',
           title: 'vue-error-page',

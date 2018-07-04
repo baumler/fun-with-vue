@@ -41,7 +41,15 @@ const state = {
       title: 'vue-tippy',
       desc: 'Used on Panda'
     },
+    {
+      url: 'https://github.com/apertureless/vue-breakpoints',
+      title: 'vue-breakpoints'
+    },
     /* {
+      url: 'https://github.com/intera/vue-zoom-on-hover',
+      title: 'vue-zoom-on-hover'
+    },
+    {
       url: 'https://github.com/robinvdvleuten/vuex-persistedstate',
       title: 'vuex-persistedstate'
     }, */

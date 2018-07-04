@@ -7,6 +7,7 @@ import StyleGuide from '@/pages/StyleGuide';
 // import Images from '@/pages/Images';
 import VueLibList from '@/pages/VueLibList';
 import TippyClicky from '@/pages/TippyClicky';
+import Breakpoints from '@/pages/BreakPoints';
 // import Profile from '@/pages/Profile';
 
 Vue.use(Router);
@@ -62,6 +63,14 @@ const router = new Router({
       component: StyleGuide,
       meta: {
         title: `${siteTitle} - StyleGuide`
+      }
+    },
+    {
+      path: '/breakpoints',
+      name: 'Breakpoints',
+      component: Breakpoints,
+      meta: {
+        title: `${siteTitle} - Breakpoints`
       }
     },
     /* {
