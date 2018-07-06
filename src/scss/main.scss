@@ -5,9 +5,11 @@
 @import 'defaults/mixins';
 @import 'base/global';
 
-@import 'base/buttons';
-@import 'base/inputs';
-
 @import 'defaults/grid';
 @import 'defaults/flex';
 @import 'defaults/align';
+
+@import 'base/buttons';
+@import 'base/inputs';
+
+@import 'components/modal';

@@ -8,6 +8,7 @@ import StyleGuide from '@/pages/StyleGuide';
 import VueLibList from '@/pages/VueLibList';
 import TippyClicky from '@/pages/TippyClicky';
 import Breakpoints from '@/pages/BreakPoints';
+import FocusLock from '@/pages/FocusLock';
 // import Profile from '@/pages/Profile';
 
 Vue.use(Router);
@@ -71,6 +72,14 @@ const router = new Router({
       component: Breakpoints,
       meta: {
         title: `${siteTitle} - Breakpoints`
+      }
+    },
+    {
+      path: '/focuslock',
+      name: 'FocusLock',
+      component: FocusLock,
+      meta: {
+        title: `${siteTitle} - FocusLock`
       }
     },
     /* {

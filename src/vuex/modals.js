@@ -1,57 +1,66 @@
 const state = {
   loader: false,
   modal: false,
+  modalClass: '',
   bodyScroll: 0
 };
 
 const getters = {
-  loader(stateG) {
-    return stateG.loader;
+  loader(gState) {
+    return gState.loader;
   },
-  modal(stateG) {
-    return stateG.modal;
+  modal(gState) {
+    return gState.modal;
   }
 };
 
 const actions = {
-  showModal(context) {
-    context.commit('showModal');
+  openModal(context, modal) {
+    context.commit('openModal', modal);
   },
-  hideModal(context) {
-    context.commit('hideModal');
+  closeModal(context) {
+    context.commit('closeModal');
   },
   showLoader(context) {
-    const scroll = window.pageYOffset;
-    document.querySelector('html').classList.add('-isLocked');
-    const body = document.querySelector('body');
-    body.style.top = `-${scroll}px`;
-
-    context.commit('showLoader', scroll);
+    context.commit('showLoader');
   },
   hideLoader(context) {
-    document.querySelector('html').classList.remove('-isLocked');
-    const body = document.querySelector('body');
-    body.style.top = '0';
-
     context.commit('hideLoader');
   }
 };
 
 const mutations = {
-  showModal(stateM) {
-    stateM.overlay = true;
+  setBodyLock(mState) {
+    const scroll = window.pageYOffset;
+    const body = document.querySelector('body');
+    document.querySelector('html').classList.add('-isLocked');
+    body.style.top = `-${scroll}px`;
+    mState.bodyScroll = scroll;
   },
-  hideModal(stateM) {
-    stateM.overlay = false;
+  clearBodyLock(mState) {
+    const body = document.querySelector('body');
+    document.querySelector('html').classList.remove('-isLocked');
+    body.style.top = '0';
+    window.scrollTo(0, mState.bodyScroll);
+    mState.bodyScroll = 0;
   },
-  showLoader(stateM, mutation) {
-    stateM.bodyScroll = mutation;
-    stateM.loader = true;
+  openModal(mState, modal) {
+    this.commit('setBodyLock');
+    mState.modalClass = modal;
+    mState.modal = true;
   },
-  hideLoader(stateM) {
-    window.scrollTo(0, stateM.bodyScroll);
-    stateM.bodyScroll = 0;
-    stateM.loader = false;
+  closeModal(mState) {
+    this.commit('clearBodyLock');
+    mState.modalClass = '';
+    mState.modal = false;
+  },
+  showLoader(mState) {
+    this.commit('setBodyLock');
+    mState.loader = true;
+  },
+  hideLoader(mState) {
+    this.commit('clearBodyLock');
+    mState.loader = false;
   }
 };
 

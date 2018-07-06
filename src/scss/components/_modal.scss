@@ -1,0 +1,87 @@
+.modal {
+  display: none;
+
+  &.isOpen {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90vw;
+    max-height: 90vh;
+    min-height: 10vh;
+    transform: translate3d(-50%, -50%, 0);
+    text-align: center;
+    background-color: white;
+    overflow: auto;
+    z-index: 1001;
+
+    @include breakpoint('medium') {
+      width: auto;
+      min-width: 40vw;
+      max-width: 90vw;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+
+    button {
+      padding: 0;
+    }
+
+    svg {
+      path {
+        fill: grey;
+      }
+    }
+  }
+
+  &__content {
+    padding: 2em;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5em;
+    font-size: 21px;
+    font-weight: 600;
+    color: green;
+
+    div {
+      border-bottom: 2px solid rgba(grey, 0.27);
+    }
+  }
+
+  &__subheader {
+  }
+
+  &__main {
+    margin-top: 1.5em;
+
+    button {
+      &.-fullWidth {
+        margin-top: 1em;
+      }
+    }
+  }
+
+  &__footer {
+    margin-top: -1em;
+    padding: 1em;
+    background-color: white;
+  }
+
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+  }
+}

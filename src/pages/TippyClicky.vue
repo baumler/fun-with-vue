@@ -34,8 +34,8 @@
     <br/>
     <br/>
     <h3>Floating labels</h3>
-    <float-label>
-      <input type="email" placeholder="E-mail">
+    <float-label for="email">
+      <input type="email" id="email" name="email" placeholder="E-mail">
     </float-label>
     <br/><br/>
     <float-label>

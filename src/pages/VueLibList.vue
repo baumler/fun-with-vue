@@ -52,11 +52,6 @@ export default {
           title: 'vue-lazyload'
         },
         {
-          url: 'https://github.com/theKashey/vue-focus-lock',
-          title: 'vue-focus-lock',
-          desc: 'a a11y component'
-        },
-        {
           url: 'https://github.com/IBM/vue-a11y-calendar',
           title: 'vue-a11y-calendar',
           desc: 'a a11y component'
