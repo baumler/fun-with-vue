@@ -1,0 +1,72 @@
+.aCalendar {
+  .calendar {
+    border: 1px solid green;
+
+    &__header {
+      justify-content: space-around;
+      align-items: center;
+      background-color: transparent;
+    }
+
+    &__previous {
+      &:after {
+        content: "\f104";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        padding: 0;
+      }
+    }
+
+    &__next {
+      &:before {
+        content: "\f105";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        padding: 0;
+      }
+    }
+
+    &__head {
+      background-color: transparent;
+      // border-top: 1px solid green;
+      background-color: green;
+      color: white;
+    }
+
+    &__weekdays {
+      height: 100%;
+    }
+
+    &__weekday {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__day {
+      &--active {
+        background-color: yellow;
+      }
+    }
+
+    &__link {
+      justify-content: center;
+      align-items: center;
+      border: 0;
+
+      &:focus {
+        background-color: rgba(green, 0.5);
+      }
+    }
+  }
+
+  .datepicker {
+    &__label {
+      margin-bottom: 0;
+    }
+
+    &__input {
+      width: auto;
+    }
+  }
+}

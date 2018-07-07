@@ -1,5 +1,5 @@
 <template>
-  <div>I have no data</div>
+  <div class="content">I have no data</div>
 </template>
 
 <script>

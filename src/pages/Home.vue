@@ -1,5 +1,5 @@
 <template>
-  <div class="textCentered">
+  <div class="content textCentered">
     <h1>Tyler's Fun with Vue.js</h1>
     <img src="../assets/logo.png"/>
   </div>

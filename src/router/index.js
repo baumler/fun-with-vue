@@ -9,6 +9,7 @@ import VueLibList from '@/pages/VueLibList';
 import TippyClicky from '@/pages/TippyClicky';
 import Breakpoints from '@/pages/BreakPoints';
 import FocusLock from '@/pages/FocusLock';
+import Calendar from '@/pages/A11yCalendar';
 // import Profile from '@/pages/Profile';
 
 Vue.use(Router);
@@ -80,6 +81,14 @@ const router = new Router({
       component: FocusLock,
       meta: {
         title: `${siteTitle} - FocusLock`
+      }
+    },
+    {
+      path: '/calendar',
+      name: 'Calendar',
+      component: Calendar,
+      meta: {
+        title: `${siteTitle} - Calendar`
       }
     },
     /* {

@@ -1,6 +1,6 @@
 <template>
-  <div class="padding">
-    <h1>Images</h1>
+  <div class="content">
+    <h1 class="textCentered">Images</h1>
     <h5>Responsive Images</h5>
     <div class="image">
       <responsive-image

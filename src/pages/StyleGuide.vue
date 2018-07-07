@@ -1,5 +1,5 @@
 <template>
-  <div class="padding">
+  <div class="content">
     <h1 class="textCentered">
       This page uses <a href="https://github.com/Botre/vue-sauce">vue-sauce</a>, <a href="https://github.com/creotip/vue-prism">vue-prism</a>, and <a href="https://github.com/baianat/vee-validate">vee-validate</a>
     </h1>

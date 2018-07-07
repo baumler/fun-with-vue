@@ -56,8 +56,8 @@ a {
   z-index: map_get($zIndexing, fixed);
 }
 
-.padding {
-  padding: 1rem;
+.content {
+	padding: 0 1rem;
 
   .myImg {
     max-width: 100%;

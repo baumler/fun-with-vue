@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="content">
+    <h1 class="textCentered">Vue Focus Lock</h1>
     <div>
       <button>I do nothing!</button><br/>
       some fun stuff here<br/>

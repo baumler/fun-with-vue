@@ -50,11 +50,6 @@ export default {
         {
           url: 'https://github.com/hilongjw/vue-lazyload',
           title: 'vue-lazyload'
-        },
-        {
-          url: 'https://github.com/IBM/vue-a11y-calendar',
-          title: 'vue-a11y-calendar',
-          desc: 'a a11y component'
         }
       ]
     };
