@@ -1,9 +1,9 @@
 <template>
   <div class="content">
     <h1 class="textCentered">
-      This page uses <a :href="usedhere[0].url">{{usedhere[0].title}}</a> (relies on <a href="https://atomiks.github.io/tippyjs/">tippy.js</a>) and
-      <a :href="usedhere[1].url">{{usedhere[1].title}}</a> and
-      <a :href="usedhere[2].url">{{usedhere[2].title}}</a>
+      This page uses <a :href="usedhere[0].url">{{ usedhere[0].title }}</a> (relies on <a href="https://atomiks.github.io/tippyjs/">tippy.js</a>) and
+      <a :href="usedhere[1].url">{{ usedhere[1].title }}</a> and
+      <a :href="usedhere[2].url">{{ usedhere[2].title }}</a>
     </h1>
     <h3>Click on the button to toggle the menu (then click outside the menu to see it close)</h3>
     <div class="menu" v-click-outside="hideMenuContainer">
@@ -90,9 +90,6 @@ export default {
     reset() {
       this.message = 'I have reactive content and html elements';
     }
-  },
-  mounted () {
-    // todo:: fix it so it doesn't close when clicking in the menu itself!!!!
   }
 };
 </script>

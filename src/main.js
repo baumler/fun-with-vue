@@ -5,6 +5,8 @@ import VeeValidate from 'vee-validate';
 import { sync } from 'vuex-router-sync'; // adds module to vuex store
 import Prism from 'vue-prism';
 import VueTippy from 'vue-tippy';
+import VueAnnouncer from 'vue-announcer';
+import vBlur from 'v-blur';
 
 // css files
 import 'prismjs/themes/prism.css'; // must have the css or create your own
@@ -27,6 +29,9 @@ Vue.use(Affix);
 Vue.use(ScrollActive);
 Vue.use(Prism);
 Vue.use(VueTippy);
+Vue.use(VueAnnouncer);
+Vue.use(vBlur);
+
 /* eslint-disable no-new */
 new Vue({
   router,

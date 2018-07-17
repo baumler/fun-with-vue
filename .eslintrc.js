@@ -13,7 +13,8 @@ module.exports = {
 		// consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
 		'plugin:vue/essential',
 		// https://github.com/standard/standard/blob/master/docs/RULES-en.md
-		'standard'
+		'standard',
+    'plugin:vue/essential' // vue-eslint
 	],
 	// required to lint *.vue files
 	plugins: [
@@ -30,5 +31,7 @@ module.exports = {
 		'space-before-function-paren': 'off',
     // keep semi colons after lines
     'semi': ["error", "always"]
+    // (vue-esliint) override/add rules settings here, such as:
+    // 'vue/no-unused-vars': 'error'
 	}
 }

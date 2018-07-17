@@ -1,6 +1,10 @@
 const state = {
   libsUsed: [
     {
+      url: 'https://github.com/vuejs/eslint-plugin-vue',
+      title: 'eslint-plugin-vue'
+    },
+    {
       url: 'https://github.com/eddiemf/vue-affix',
       title: 'vue-affix',
       desc: 'Used on Panda'
@@ -74,6 +78,15 @@ const state = {
     {
       url: 'https://github.com/bkzl/vue-float-label',
       title: 'vue-float-label'
+    },
+    {
+      url: 'https://github.com/vue-a11y/vue-announcer',
+      title: 'vue-announcer',
+      desc: 'a a11y component'
+    },
+    {
+      url: 'https://github.com/ndelvalle/v-blur',
+      title: 'v-blur'
     }
   ]
 };

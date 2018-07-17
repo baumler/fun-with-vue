@@ -50,6 +50,10 @@ export default {
         {
           url: 'https://github.com/hilongjw/vue-lazyload',
           title: 'vue-lazyload'
+        },
+        {
+          url: 'https://adi518.github.io/vue-breakpoint-component/#/',
+          title: 'vue-breakpoint-component'
         }
       ]
     };

@@ -2,7 +2,14 @@ const state = {
   loader: false,
   modal: false,
   modalClass: '',
-  bodyScroll: 0
+  bodyScroll: 0,
+  isBlurred: false // activate and deactivate blur directive example 1
+  /* blurConfig: {
+    isBlurred: false, // activate and deactivate blur directive example 2
+    opacity: 0.3,
+    filter: 'blur(1.2px)',
+    transition: 'all .3s linear'
+  } */
 };
 
 const getters = {
@@ -57,10 +64,12 @@ const mutations = {
   showLoader(mState) {
     this.commit('setBodyLock');
     mState.loader = true;
+    mState.isBlurred = true;
   },
   hideLoader(mState) {
     this.commit('clearBodyLock');
     mState.loader = false;
+    mState.isBlurred = false;
   }
 };
 
