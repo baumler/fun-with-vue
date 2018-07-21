@@ -2,35 +2,34 @@
   <div id="app">
     <page-header v-blur="blurConfig"></page-header>
 
-    <div class="drawer-buttons">
-      <button class="btn -dark -wide" @click.prevent="toggleDrawer">show drawer</button>
-      <button class="btn -dark -wide" @click.prevent="toggle2Drawer">show drawer 2</button>
+    <div v-blur="blurConfig" class="drawer-buttons">
+      <button class="d1d btn -dark -wide" @click.prevent="openFocusDrawer">show drawer</button>
+      <button class="d2d btn -dark -wide" @click.prevent="openFocus2Drawer">show drawer 2</button>
     </div>
 
     <router-view v-blur="blurConfig" />
-    <vue-drawer :show="dShow" position="bottom" :dims="{width: '100vw', height: '200px'}" drawer-color="#e7e7e7" :close-out-side="true" @change-show="toggleDrawer">
-      <button @click.prevent="toggleDrawer(false)">Close Drawer</button>
-      <p>some weird text</p>
-    </vue-drawer>
 
-    <vue-drawer class="customStyle" :show="d2Show" drawer-color="lightgrey" overlay-color="rgba(0, 180, 0, 0.5)" @change-show="toggle2Drawer">
-      <button @click.prevent="toggle2Drawer(false)">Close This Drawer</button>
-      <p>Just something here</p>
-    </vue-drawer>
     <loading/>
+
+    <all-drawers></all-drawers>
+
     <all-modals></all-modals>
+
+    <transition name="fade" appear>
+      <div v-show="overlayActive" class="modal-overlay"></div>
+    </transition>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import { Validator } from 'vee-validate';
 import dictionary from './validation';
 
 import Loading from '@/components/Loading';
 import PageHeader from '@/components/PageHeader';
 import AllModals from '@/AllModals';
-import VueDrawer from '@/components/TheDrawer';
+import AllDrawers from '@/AllDrawers';
 
 Validator.localize(dictionary);
 
@@ -39,25 +38,24 @@ export default {
     Loading,
     PageHeader,
     AllModals,
-    VueDrawer
+    AllDrawers
   },
   data() {
-    return {
-      dShow: false,
-      d2Show: false
-    };
+    return {};
   },
   computed: {
     ...mapState({
-      blurConfig: state => state.Common.blurConfig
+      blurConfig: state => state.Common.blurConfig,
+      overlayActive: state => state.Common.overlayActive
     })
   },
   methods: {
-    toggleDrawer(val) {
-      this.dShow = val;
+    ...mapActions(['openDrawer']),
+    openFocusDrawer() {
+      this.openDrawer(['draw1er', '.d2d']);
     },
-    toggle2Drawer(val) {
-      this.d2Show = val;
+    openFocus2Drawer() {
+      this.openDrawer(['draw2er', '.d1d']);
     }
   }
 };
@@ -65,21 +63,4 @@ export default {
 
 <style lang="scss">
   @import "scss/main";
-
-  .drawer-buttons {
-    padding: 2rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .vue-drawer__main {
-    padding: 1rem;
-  }
-
-  .customStyle {
-    .vue-drawer__main {
-      color: blue;
-    }
-  }
 </style>

@@ -24,9 +24,9 @@
       </modal>
     </focus-lock>
 
-    <transition name="fade" appear>
+    <!--<transition name="fade" appear>
       <div v-show="modal" class="modal-overlay"></div>
-    </transition>
+    </transition>-->
   </div>
 </template>
 

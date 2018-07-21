@@ -1,20 +1,19 @@
 <template>
-  <div class="vue-drawer" :class="show ? 'active' : ''">
+  <div v-show="drawer.active" :class="['vue-drawer', openName, isOpen]">
     <div :class="['vue-drawer__main', 'drawer-' + position]" :style="{'width': dims.width, 'height': dims.height, 'background-color': drawerColor}">
       <slot></slot>
     </div>
-
-    <div class="vue-drawer__mask" :style="{'background-color': overlayColor}" @click.prevent="hideMask"></div>
   </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
   props: {
-    show: {
-      type: Boolean,
-      required: true,
-      default: false
+    openName: {
+      type: String,
+      required: true
     },
     position: {
       type: String,
@@ -24,83 +23,45 @@ export default {
       type: Object,
       default: () => { return { width: '400px', height: '100vh' }; }
     },
-    lockBody: {
-      type: Boolean,
-      default: false
-    },
-    closeOutSide: {
-      type: Boolean,
-      default: false
-    },
     drawerColor: {
       type: String,
       default: '#FFFFFF'
-    },
-    overlayColor: {
-      type: String,
-      default: 'rgba(0, 0, 0, 0.5)'
     }
   },
-  data() {
-    return {
-      bodyScroll: 0
-    };
+  computed: {
+    ...mapState({
+      drawer: state => state.Common.drawer
+    }),
+    isOpen() {
+      if (this.drawer.active && this.drawer.openName === this.openName) {
+        return 'isOpen';
+      }
+      return '';
+    }
   },
   methods: {
-    hideMask() {
+    ...mapActions(['closeDrawer']),
+    close() {
+      this.closeDrawer();
       if (this.closeOutSide) {
-        this.$emit('change-show', false);
-      }
-    }
-  },
-  watch: {
-    show() {
-      if (!this.show) {
-        this.$emit('on-hide');
-      } else {
-        this.$emit('on-show');
-      }
-
-      // lock body
-      if (this.lockBody) {
-        const html = document.querySelector('html');
-        const body = document.querySelector('body');
-
-        if (this.show) {
-          const scroll = window.pageYOffset;
-          html.classList.add('-isLocked');
-          body.style.top = `-${scroll}px`;
-          this.bodyScroll = scroll;
-        } else {
-          html.classList.remove('-isLocked');
-          body.style.top = `0`;
-          window.scrollTo(0, this.bodyScroll);
-          this.bodyScroll = 0;
-        }
+        this.$emit('drawerClosed');
       }
     }
   }
 };
 </script>
 
-<style>
-  html.-isLocked {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  html.-isLocked body {
-    position: fixed;
-    width: 100vw;
-  }
-
+<style lang="scss">
   .vue-drawer {
     display: block;
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 0;
+    height: 0;
+
+    &.isOpen {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .vue-drawer__main {
@@ -144,23 +105,17 @@ export default {
     width: 0;
     height: 0;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s linear;
     z-index: 1000;
   }
 
-  .vue-drawer.active .vue-drawer__main.drawer-right,
-  .vue-drawer.active .vue-drawer__main.drawer-left {
+  .vue-drawer.isOpen .vue-drawer__main.drawer-right,
+  .vue-drawer.isOpen .vue-drawer__main.drawer-left {
     transform: translateX(0%);
   }
 
-  .vue-drawer.active .vue-drawer__main.drawer-top,
-  .vue-drawer.active .vue-drawer__main.drawer-bottom {
+  .vue-drawer.isOpen .vue-drawer__main.drawer-top,
+  .vue-drawer.isOpen .vue-drawer__main.drawer-bottom {
     transform: translateY(0%);
-  }
-
-  .vue-drawer.active .vue-drawer__mask {
-    width: 100%;
-    height: 100%;
-    opacity: 1;
   }
 </style>

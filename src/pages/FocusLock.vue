@@ -27,10 +27,6 @@ export default {
     FocusLock,
     Modal
   },
-  data() {
-    return {
-    };
-  },
   methods: {
     ...mapActions(['openModal']),
     openFocusModal() {
