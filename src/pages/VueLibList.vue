@@ -54,6 +54,10 @@ export default {
         {
           url: 'https://adi518.github.io/vue-breakpoint-component/#/',
           title: 'vue-breakpoint-component'
+        },
+        {
+          url: 'https://github.com/shakee93/vue-toasted',
+          title: 'vue-toasted'
         }
       ]
     };

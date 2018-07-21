@@ -1,6 +1,6 @@
 <template>
   <transition name="fade" appear>
-    <div v-show="modal" :class="['modal', className, isOpen]">
+    <div v-show="modal" :class="['modal', openName, styleClass, isOpen]">
       <div v-if="!hideClose" class="modal__close">
         <button class="-plain close" @click="closeMe"><close></close></button>
       </div>
@@ -33,9 +33,12 @@ import Close from './icons/Close.vue';
 export default {
   components: { Close },
   props: {
-    className: {
+    openName: {
       type: String,
       required: true
+    },
+    styleClass: {
+      type: String
     },
     hssFooter: {
       type: Boolean,
@@ -52,7 +55,7 @@ export default {
     }),
     ...mapGetters(['modal']),
     isOpen() {
-      if (this.modal && this.modalClass === this.className) {
+      if (this.modal && this.modalClass === this.openName) {
         return 'isOpen';
       }
       return '';

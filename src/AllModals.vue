@@ -1,7 +1,7 @@
 <template>
   <div class="all-modals">
     <focus-lock :disabled="focusTrap.modal === 'modalFocus' ? false : true">
-      <modal class-name="modalFocus" @modalClosed="closeFocusModal">
+      <modal open-name="modalFocus" @modalClosed="closeFocusModal">
         <div slot="header">Focus Locked to the modal</div>
         <div slot="main">
           <p>You will only be able to tab inside the modal.</p>
@@ -12,7 +12,7 @@
     </focus-lock>
 
     <focus-lock :disabled="focusTrap.modal === 'modalSecondFocus' ? false : true">
-      <modal class-name="modalSecondFocus" @modalClosed="closeFocusModal">
+      <modal open-name="modalSecondFocus" style-class="shitsandgiggles" @modalClosed="closeFocusModal">
         <div slot="header">Focus Locked to the modal #2</div>
         <div slot="main">
           <button>I do nothing</button>
