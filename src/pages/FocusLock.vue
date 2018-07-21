@@ -2,15 +2,17 @@
   <div class="content">
     <h1 class="textCentered">Vue Focus Lock</h1>
     <div>
-      <button>I do nothing!</button><br/>
-      some fun stuff here<br/>
-      <button>I also do nothing</button><br/>
+      <button>I do nothing!</button><br/><br/>
+      some fun stuff here<br/><br/>
+      <button class="return2focus">I also do nothing, but #2 returns focus here</button><br/>
+      <br/><br/>
+      <button @click.prevent="openFocusModal">Open modal #1 to see focus trap</button><br/>
+
+      <input class="focustrap" type="text" placeholder="focus from #1 returns here!"/>
       <br/>
-      <button @click.prevent="openFocusModal">Open modal to see focus trap</button><br/>
-
-      <input class="focustrap" type="text" placeholder="focus returns here!"/>
-
-      <button>Nothing here</button>
+      <button>Nothing here</button><br/>
+      <br/>
+      <button @click.prevent="openFocus2Modal">Open modal #2 to see focus trap</button><br/>
     </div>
   </div>
 </template>
@@ -33,6 +35,9 @@ export default {
     ...mapActions(['openModal']),
     openFocusModal() {
       this.openModal(['modalFocus', '.focustrap']);
+    },
+    openFocus2Modal() {
+      this.openModal(['modalSecondFocus', '.return2focus']);
     }
   }
 };

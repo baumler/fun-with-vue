@@ -11,6 +11,19 @@
       </modal>
     </focus-lock>
 
+    <focus-lock :disabled="focusTrap.modal === 'modalSecondFocus' ? false : true">
+      <modal class-name="modalSecondFocus" @modalClosed="closeFocusModal">
+        <div slot="header">Focus Locked to the modal #2</div>
+        <div slot="main">
+          <button>I do nothing</button>
+          <p>You will only be able to tab inside the modal.</p>
+          <button>I do nothing</button>
+          <button>I do nothing</button>
+          <button @click.prevent="closeFocusModal">Close me</button>
+        </div>
+      </modal>
+    </focus-lock>
+
     <transition name="fade" appear>
       <div v-show="modal" class="modal-overlay"></div>
     </transition>
