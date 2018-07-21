@@ -2,6 +2,8 @@
   <div class="content">
     <h1 class="textCentered">Vue Breakpoints</h1>
 
+    <p class="textCentered">Breakpoints can be anything you want them to be. Set up in the main.js file</p>
+
     <h3 class="textCentered">Current: {{ whatSizeAmI }}</h3>
 
     <div class="container">
