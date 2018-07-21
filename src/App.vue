@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <page-header v-blur="isBlurred"></page-header>
-    <router-view v-blur="isBlurred" />
+    <page-header v-blur="blurConfig"></page-header>
+    <router-view v-blur="blurConfig" />
     <loading/>
+    <all-modals></all-modals>
   </div>
 </template>
 
@@ -14,17 +15,19 @@ import dictionary from './validation';
 
 import Loading from '@/components/Loading';
 import PageHeader from '@/components/PageHeader';
+import AllModals from '@/AllModals';
 
 Validator.localize(dictionary);
 
 export default {
   components: {
     Loading,
-    PageHeader
+    PageHeader,
+    AllModals
   },
   computed: {
     ...mapState({
-      isBlurred: state => state.Common.isBlurred
+      blurConfig: state => state.Common.blurConfig
     })
   }
 };

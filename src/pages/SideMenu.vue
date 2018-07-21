@@ -1,5 +1,5 @@
 <template>
-  <div v-blur="isBlurred">
+  <div>
     <div class="menu" v-if="isLoaded">
       <h1 class="textCentered">This page uses <a href="https://github.com/eddiemf/vue-affix">vue-affix</a> and <a href="https://github.com/eddiemf/vue-scrollactive">vue-scrollactive</a> and vue-announce (screen reader lib)</h1>
       <div class="flex">
@@ -82,7 +82,6 @@ export default {
                   console.log('hey');
                   this.hideLoader();
                   this.isLoaded = true;
-                  this.isBlurred = false;
                 }
               })
               .catch((err) => console.log(err));

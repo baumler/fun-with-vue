@@ -3,13 +3,17 @@ const state = {
   modal: false,
   modalClass: '',
   bodyScroll: 0,
-  isBlurred: false // activate and deactivate blur directive example 1
-  /* blurConfig: {
+  focusTrap: {
+    active: false,
+    modal: '',
+    returnTo: ''
+  },
+  blurConfig: {
     isBlurred: false, // activate and deactivate blur directive example 2
     opacity: 0.3,
-    filter: 'blur(1.2px)',
-    transition: 'all .3s linear'
-  } */
+    filter: 'blur(4px)',
+    transition: 'all 0.1s'
+  }
 };
 
 const getters = {
@@ -51,25 +55,33 @@ const mutations = {
     window.scrollTo(0, mState.bodyScroll);
     mState.bodyScroll = 0;
   },
-  openModal(mState, modal) {
+  openModal(mState, mutation) {
+    mState.blurConfig.isBlurred = true;
     this.commit('setBodyLock');
-    mState.modalClass = modal;
+    mState.modalClass = mutation[0];
     mState.modal = true;
+    mState.focusTrap.modal = mutation[0];
+    mState.focusTrap.returnTo = mutation[1];
   },
   closeModal(mState) {
+    mState.blurConfig.isBlurred = false;
     this.commit('clearBodyLock');
     mState.modalClass = '';
     mState.modal = false;
+    window.setTimeout(() => {
+      mState.focusTrap.modal = '';
+      mState.focusTrap.returnTo = '';
+    }, 300);
   },
   showLoader(mState) {
+    mState.blurConfig.isBlurred = true;
     this.commit('setBodyLock');
     mState.loader = true;
-    mState.isBlurred = true;
   },
   hideLoader(mState) {
+    mState.blurConfig.isBlurred = false;
     this.commit('clearBodyLock');
     mState.loader = false;
-    mState.isBlurred = false;
   }
 };
 
