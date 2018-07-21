@@ -46,8 +46,8 @@ const state = {
       desc: 'Used on Panda'
     },
     {
-      url: 'https://github.com/apertureless/vue-breakpoints',
-      title: 'vue-breakpoints'
+      url: 'https://github.com/AlexandreBonaventure/vue-mq',
+      title: 'vue-mq'
     },
     /* {
       url: 'https://github.com/intera/vue-zoom-on-hover',

@@ -7,6 +7,7 @@ import Prism from 'vue-prism';
 import VueTippy from 'vue-tippy';
 import VueAnnouncer from 'vue-announcer';
 import vBlur from 'v-blur';
+import VueMq from 'vue-mq';
 
 // css files
 import 'prismjs/themes/prism.css'; // must have the css or create your own
@@ -31,6 +32,14 @@ Vue.use(Prism);
 Vue.use(VueTippy);
 Vue.use(VueAnnouncer);
 Vue.use(vBlur);
+Vue.use(VueMq, {
+  breakpoints: {
+    phone: 420,
+    tablet: 768,
+    desktop: 1200,
+    hd: Infinity
+  }
+});
 
 /* eslint-disable no-new */
 new Vue({
