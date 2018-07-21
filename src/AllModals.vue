@@ -10,6 +10,10 @@
         </div>
       </modal>
     </focus-lock>
+
+    <transition name="fade" appear>
+      <div v-show="modal" class="modal-overlay"></div>
+    </transition>
   </div>
 </template>
 
@@ -25,6 +29,7 @@ export default {
   },
   computed: {
     ...mapState({
+      modal: state => state.Common.modal,
       focusTrap: state => state.Common.focusTrap
     })
   },
@@ -35,7 +40,6 @@ export default {
     closeFocusModal() {
       const rt = this.focusTrap.returnTo;
       this.closeModal();
-      console.log('rt', rt);
       this.$nextTick(() => {
         document.querySelector(rt).focus();
       });

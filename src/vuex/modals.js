@@ -12,7 +12,7 @@ const state = {
     isBlurred: false, // activate and deactivate blur directive example 2
     opacity: 0.3,
     filter: 'blur(4px)',
-    transition: 'all 0.1s'
+    transition: 'all 0.3s linear'
   }
 };
 
@@ -56,10 +56,10 @@ const mutations = {
     mState.bodyScroll = 0;
   },
   openModal(mState, mutation) {
-    mState.blurConfig.isBlurred = true;
     this.commit('setBodyLock');
     mState.modalClass = mutation[0];
     mState.modal = true;
+    mState.blurConfig.isBlurred = true;
     mState.focusTrap.modal = mutation[0];
     mState.focusTrap.returnTo = mutation[1];
   },

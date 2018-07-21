@@ -1,6 +1,6 @@
 <template>
-  <transition-group v-show="modal" name="fade" appear>
-    <div :class="['modal', className, isOpen]" key="modal">
+  <transition name="fade" appear>
+    <div v-show="modal" :class="['modal', className, isOpen]">
       <div v-if="!hideClose" class="modal__close">
         <button class="-plain close" @click="closeMe"><close></close></button>
       </div>
@@ -23,9 +23,7 @@
         <slot name="footer"></slot>
       </div>
     </div>
-
-    <div class="modal-overlay" key="overlay"></div>
-  </transition-group>
+  </transition>
 </template>
 
 <script>

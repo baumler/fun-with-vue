@@ -33,7 +33,6 @@ export default {
     ...mapActions(['openModal']),
     openFocusModal() {
       this.openModal(['modalFocus', '.focustrap']);
-      this.toggleTrapActive();
     }
   }
 };
