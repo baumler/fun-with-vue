@@ -31,12 +31,13 @@ export default {
   },
   computed: {
     ...mapState({
-      drawer: state => state.Common.drawer,
       focusTrap: state => state.Common.focusTrap
     })
   },
   methods: {
-    ...mapActions(['closeDrawer']),
+    ...mapActions([
+      'closeDrawer'
+    ]),
     closeFocusDrawer() {
       const rt = this.focusTrap.returnTo;
       this.closeDrawer();

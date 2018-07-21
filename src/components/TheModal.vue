@@ -1,6 +1,6 @@
 <template>
   <transition name="fade" appear>
-    <div v-show="modal" :class="['modal', openName, styleClass, isOpen]">
+    <div v-show="modal.active" :class="['modal', openName, styleClass, isOpen]">
       <div v-if="!hideClose" class="modal__close">
         <button class="-plain close" @click="closeMe"><close></close></button>
       </div>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters, mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import Close from './icons/Close.vue';
 
 export default {
@@ -51,11 +51,11 @@ export default {
   },
   computed: {
     ...mapState({
-      modalClass: state => state.Common.modalClass
+      modalClass: state => state.Common.modalClass,
+      modal: state => state.Common.modal
     }),
-    ...mapGetters(['modal']),
     isOpen() {
-      if (this.modal && this.modalClass === this.openName) {
+      if (this.modal.active && this.modal.openName === this.openName) {
         return 'isOpen';
       }
       return '';

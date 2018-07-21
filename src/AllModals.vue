@@ -23,10 +23,6 @@
         </div>
       </modal>
     </focus-lock>
-
-    <!--<transition name="fade" appear>
-      <div v-show="modal" class="modal-overlay"></div>
-    </transition>-->
   </div>
 </template>
 
@@ -42,7 +38,6 @@ export default {
   },
   computed: {
     ...mapState({
-      modal: state => state.Common.modal,
       focusTrap: state => state.Common.focusTrap
     })
   },

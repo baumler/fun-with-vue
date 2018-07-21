@@ -1,6 +1,9 @@
 const state = {
   loader: false,
-  modal: false,
+  modal: {
+    active: false,
+    openName: ''
+  },
   modalClass: '',
   drawer: {
     active: false,
@@ -85,16 +88,16 @@ const mutations = {
   },
   openModal(mState, mutation) {
     this.commit('setBodyLock');
-    mState.modalClass = mutation[0];
-    mState.modal = true;
+    mState.modal.openName = mutation[0];
+    mState.modal.active = true;
     mState.blurConfig.isBlurred = true;
     this.commit('setFocus', mutation);
   },
   closeModal(mState) {
     mState.blurConfig.isBlurred = false;
     this.commit('clearBodyLock');
-    mState.modalClass = '';
-    mState.modal = false;
+    mState.modal.openName = '';
+    mState.modal.active = false;
     this.commit('clearFocus');
   },
   showLoader(mState) {
