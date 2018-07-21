@@ -10,7 +10,7 @@ import TippyClicky from '@/pages/TippyClicky';
 import Breakpoints from '@/pages/BreakPoints';
 import FocusLock from '@/pages/FocusLock';
 import Calendar from '@/pages/A11yCalendar';
-// import Profile from '@/pages/Profile';
+import GridFun from '@/pages/GridFun';
 
 Vue.use(Router);
 
@@ -91,14 +91,14 @@ const router = new Router({
         title: `${siteTitle} - Calendar`
       }
     },
-    /* {
-      path: '/profile',
-      name: 'Profile',
-      component: Profile,
+    {
+      path: '/grid',
+      name: 'Grid',
+      component: GridFun,
       meta: {
-        title: `${siteTitle} - Profile`
+        title: `${siteTitle} - Grid`
       }
-    }, */
+    },
     {
       path: '/vueliblist',
       name: 'VueLibList',
