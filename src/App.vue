@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="main-container" v-blur="blurConfig">
-      <page-header></page-header>
+      <navigation></navigation>
 
       <div class="drawer-buttons">
         <button class="d1d btn" @click.prevent="openFocusDrawer">show drawer</button>
@@ -29,7 +29,7 @@ import { Validator } from 'vee-validate';
 import dictionary from './validation';
 
 import Loading from '@/components/Loading';
-import PageHeader from '@/components/PageHeader';
+import Navigation from '@/components/Navigation';
 import AllModals from '@/AllModals';
 import AllDrawers from '@/AllDrawers';
 
@@ -38,7 +38,7 @@ Validator.localize(dictionary);
 export default {
   components: {
     Loading,
-    PageHeader,
+    Navigation,
     AllModals,
     AllDrawers
   },

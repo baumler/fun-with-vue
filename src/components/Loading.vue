@@ -3,7 +3,7 @@
     <div class="loading" key="spinner">
       <spring-spinner
         :animation-duration="spinnerOptions.duration"
-        :size="spinnerOptions.size"
+        :size="spinnerOptions.mysize"
         :color="spinnerOptions.color"
       />
     </div>
@@ -23,7 +23,7 @@ export default {
     return {
       spinnerOptions: {
         duration: 3000,
-        size: 120,
+        mysize: 120,
         color: 'white'
       }
     };

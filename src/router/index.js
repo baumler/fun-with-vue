@@ -11,6 +11,7 @@ import Breakpoints from '@/pages/BreakPoints';
 import FocusLock from '@/pages/FocusLock';
 import Calendar from '@/pages/A11yCalendar';
 import GridFun from '@/pages/GridFun';
+import ElementQuery from '@/pages/ElementQuery';
 
 Vue.use(Router);
 
@@ -97,6 +98,14 @@ const router = new Router({
       component: GridFun,
       meta: {
         title: `${siteTitle} - Grid`
+      }
+    },
+    {
+      path: '/elementquery',
+      name: 'ElementQuery',
+      component: ElementQuery,
+      meta: {
+        title: `${siteTitle} - ElementQuery`
       }
     },
     {

@@ -8,6 +8,7 @@ import VueTippy from 'vue-tippy';
 import VueAnnouncer from 'vue-announcer';
 import vBlur from 'v-blur';
 import VueMq from 'vue-mq';
+import VueElementQuery from 'vue-element-query';
 
 // css files
 import 'prismjs/themes/prism.css'; // must have the css or create your own
@@ -40,6 +41,7 @@ Vue.use(VueMq, {
     hd: Infinity
   }
 });
+Vue.use(VueElementQuery);
 
 /* eslint-disable no-new */
 new Vue({

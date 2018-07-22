@@ -1,8 +1,9 @@
 <template xmlns:v-responsive="http://www.w3.org/1999/xhtml">
   <div class="content">
-    <h1 class="textCentered">Vue Breakpoints</h1>
-
-    <p class="textCentered">Breakpoints can be anything you want them to be. Set up in the main.js file</p>
+    <page-header>
+      <template slot="title">vue-mq</template>
+      <template slot="descr">Breakpoints can be anything you want them to be. Set up in the main.js file</template>
+    </page-header>
 
     <h3 class="textCentered">Current: {{ whatSizeAmI }}</h3>
 
@@ -111,8 +112,12 @@
 </template>
 
 <script>
+import PageHeader from '@/components/PageHeader';
 
 export default {
+  components: {
+    PageHeader
+  },
   computed: {
     whatSizeAmI() {
       return this.$mq;

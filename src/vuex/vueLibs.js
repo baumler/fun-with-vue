@@ -87,6 +87,14 @@ const state = {
     {
       url: 'https://github.com/ndelvalle/v-blur',
       title: 'v-blur'
+    },
+    {
+      url: 'https://github.com/e2o/vue-element-query',
+      title: 'vue-element-query'
+    },
+    {
+      url: 'https://github.com/stowball/eqio',
+      title: 'eqio'
     }
   ]
 };
