@@ -24,7 +24,7 @@ export default {
       spinnerOptions: {
         duration: 3000,
         size: 120,
-        color: 'green'
+        color: 'white'
       }
     };
   },

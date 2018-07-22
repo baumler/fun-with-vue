@@ -18,7 +18,7 @@ button {
     margin-left: 0.5rem;
   }
 
-  &:hover, &:focus {
+  &:hover {
     opacity: 0.8;
   }
 
@@ -26,5 +26,42 @@ button {
     color: black;
     background: transparent;
     border-color: transparent;
+  }
+}
+
+// some cool button hover transitions
+.bordered-both {
+  position: relative;
+  transform: perspective(1px) translateZ(0);
+  overflow: hidden;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 51%;
+    right: 51%;
+    background: #2098D1;
+    height: 4px;
+    transition-property: left, right;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+
+  &:before {
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+
+  &:hover {
+    &:before,
+    &:after {
+      left: 0;
+      right: 0;
+    }
   }
 }

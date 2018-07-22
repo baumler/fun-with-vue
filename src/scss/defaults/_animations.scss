@@ -1,6 +1,39 @@
+// Vue
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.3s linear;
 }
 .fade-enter, .fade-leave-to  {
   opacity: 0;
 }
+
+// links
+a {
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 51%;
+    right: 51%;
+    height: 2px;
+    background: green;
+    transition-property: left, right;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+
+    &:before {
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+
+

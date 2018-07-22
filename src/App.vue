@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    <page-header v-blur="blurConfig"></page-header>
+    <div class="main-container" v-blur="blurConfig">
+      <page-header></page-header>
 
-    <div v-blur="blurConfig" class="drawer-buttons">
-      <button class="d1d btn -dark -wide" @click.prevent="openFocusDrawer">show drawer</button>
-      <button class="d2d btn -dark -wide" @click.prevent="openFocus2Drawer">show drawer 2</button>
+      <div class="drawer-buttons">
+        <button class="d1d btn" @click.prevent="openFocusDrawer">show drawer</button>
+        <button class="d2d btn" @click.prevent="openFocus2Drawer">show drawer 2</button>
+      </div>
+
+      <router-view />
     </div>
-
-    <router-view v-blur="blurConfig" />
 
     <loading/>
 
