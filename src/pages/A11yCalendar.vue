@@ -1,6 +1,9 @@
 <template>
   <div class="content">
-    <h1 class="textCentered">Vue A11y Calendar</h1>
+    <page-header>
+      <template slot="title">Vue A11y Calendar</template>
+    </page-header>
+
     <div class="aCalendar">
       <calendar></calendar>
     </div>
@@ -12,11 +15,13 @@
 </template>
 
 <script>
+import PageHeader from '@/components/PageHeader';
 import Calendar from 'vue-a11y-calendar/calendar';
 import DatePicker from 'vue-a11y-calendar/datepicker';
 
 export default {
   components: {
+    PageHeader,
     Calendar,
     DatePicker
   },

@@ -1,6 +1,9 @@
 <template>
   <div class="content">
-    <h1 class="textCentered">Personal Grid Template (uses vue-mq)</h1>
+    <page-header>
+      <template slot="title">Personal Grid Template</template>
+      <template slot="descr">uses vue-mq for window based breakpoints</template>
+    </page-header>
 
     <h3>Columns: 4 to 3 to 2 to 1</h3>
     <the-grid :columns="$mq | mq({ phone: 1, tablet: 2, desktop: 3, hd: 4 })" justify="start" alignment="start">
@@ -74,10 +77,14 @@
 </template>
 
 <script>
+import PageHeader from '@/components/PageHeader';
 import TheGrid from '@/components/TheGrid';
 
 export default {
-  components: { TheGrid },
+  components: {
+    PageHeader,
+    TheGrid
+  },
   data() {
     return {
     };

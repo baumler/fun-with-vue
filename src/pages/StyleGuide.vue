@@ -1,8 +1,9 @@
 <template>
   <div class="content">
-    <h1 class="textCentered">
-      This page uses <a href="https://github.com/Botre/vue-sauce">vue-sauce</a>, <a href="https://github.com/creotip/vue-prism">vue-prism</a>, and <a href="https://github.com/baianat/vee-validate">vee-validate</a>
-    </h1>
+    <page-header>
+      <template slot="title">This page uses vue-sauce, vue-prism, and vee-validate</template>
+    </page-header>
+
     <p class="textCentered">I modified vue-sauce to allow a prop for the "language" needed for vue-prism</p>
 
     <div class="grid -bordered -max2">
@@ -50,6 +51,7 @@
 <script>
 import Vue from 'vue';
 import StyleGuide from '../js/libs/vue-sauce';
+import PageHeader from '@/components/PageHeader';
 import ButtonPrimary from '../components/buttons/ButtonPrimary.vue';
 import InputText from '../components/forms/InputText.vue';
 
@@ -57,6 +59,7 @@ Vue.directive('sauce', StyleGuide);
 
 export default {
   components: {
+    PageHeader,
     ButtonPrimary,
     InputText
   },

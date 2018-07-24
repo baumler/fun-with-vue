@@ -13,7 +13,7 @@ a {
   &:before {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -5px;
     left: 51%;
     right: 51%;
     height: 2px;
@@ -33,7 +33,10 @@ a {
       right: 0;
     }
   }
+
+  &.active {
+    &:before {
+      background: red;
+    }
+  }
 }
-
-
-

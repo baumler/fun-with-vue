@@ -1,6 +1,9 @@
 <template>
   <div class="content">
-    <h1 class="textCentered">This page uses <a href="https://github.com/SortableJS/Vue.Draggable">Vuedraggable</a> which relies on <a href="https://github.com/RubaXa/Sortable">Sortable.js</a></h1>
+    <page-header>
+      <template slot="title">This page uses Vuedraggable which relies on <a href="https://github.com/RubaXa/Sortable">Sortable.js</a></template>
+    </page-header>
+
     <div class="lists">
       <h3>Updates order (with transition)</h3>
       <draggable v-model="books" @update="update">
@@ -35,6 +38,7 @@
 
 <script>
 import Draggable from 'vuedraggable';
+import PageHeader from '@/components/PageHeader';
 
 export default {
   data() {
@@ -107,7 +111,8 @@ export default {
     }
   },
   components: {
-    Draggable
+    Draggable,
+    PageHeader
   }
 };
 </script>

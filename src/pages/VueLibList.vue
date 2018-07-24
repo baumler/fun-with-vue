@@ -1,6 +1,9 @@
 <template>
   <div class="content">
-    <h1 class="textCentered">Vue Libraries</h1>
+    <page-header>
+      <template slot="title">Vue Libraries</template>
+    </page-header>
+
     <div class="lists">
       <h3>Vue Libraries I still want to example here</h3>
       <ul>
@@ -29,8 +32,12 @@
 
 <script>
 import { mapState } from 'vuex';
+import PageHeader from '@/components/PageHeader';
 
 export default {
+  components: {
+    PageHeader
+  },
   data() {
     return {
       remaining: [
@@ -72,10 +79,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .content {
-    padding: 1rem;
-  }
-
   .list-item {
     padding: 0.5rem 0;
 

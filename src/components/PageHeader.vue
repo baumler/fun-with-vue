@@ -1,27 +1,11 @@
 <template>
-  <div class="page-header">
-    <main-nav/>
+  <div class="textCentered">
+    <h1><slot name="title"></slot></h1>
+    <p><slot name="descr"></slot></p>
   </div>
 </template>
 
 <script>
-import MainNav from '@/components/MainNav';
 export default {
-  components: {
-    MainNav
-  }
 };
 </script>
-
-<style lang="scss" scoped>
-  nav {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    padding: 0 2rem;
-
-    a {
-      padding: 0 1rem;
-    }
-  }
-</style>

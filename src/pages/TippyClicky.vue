@@ -1,10 +1,9 @@
 <template>
   <div class="content">
-    <h1 class="textCentered">
-      This page uses <a :href="usedhere[0].url">{{ usedhere[0].title }}</a> (relies on <a href="https://atomiks.github.io/tippyjs/">tippy.js</a>) and
-      <a :href="usedhere[1].url">{{ usedhere[1].title }}</a> and
-      <a :href="usedhere[2].url">{{ usedhere[2].title }}</a>
-    </h1>
+    <page-header>
+      <template slot="title">This page uses vue-tippy, vue-click-outside, vue-float-label</template>
+    </page-header>
+
     <h3>Click on the button to toggle the menu (then click outside the menu to see it close)</h3>
     <div class="menu" v-click-outside="hideMenuContainer">
       <button class="btn" @click="toggleMenuContainer">Menu</button>
@@ -53,13 +52,16 @@
 <script>
 import Vue from 'vue';
 import VueFloatLabel from 'vue-float-label';
-import { mapState } from 'vuex';
 import ClickOutside from 'vue-click-outside';
+import PageHeader from '@/components/PageHeader';
 
 Vue.use(VueFloatLabel);
 
 export default {
   directives: { ClickOutside, VueFloatLabel },
+  components: {
+    PageHeader
+  },
   data() {
     return {
       showMenuContainer: false,
@@ -67,15 +69,6 @@ export default {
     };
   },
   computed: {
-    ...mapState({
-      libs: (state) => state.VueLibs.libsUsed
-    }),
-    usedhere() {
-      const tip = this.libs.filter(t => t.title === 'vue-tippy')[0];
-      const coo = this.libs.filter(c => c.title === 'vue-click-outside')[0];
-      const fl = this.libs.filter(f => f.title === 'vue-float-label')[0];
-      return [tip, coo, fl];
-    }
   },
   methods: {
     toggleMenuContainer() {

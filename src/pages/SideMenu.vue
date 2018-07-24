@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="menu" v-if="isLoaded">
-      <h1 class="textCentered">This page uses <a href="https://github.com/eddiemf/vue-affix">vue-affix</a> and <a href="https://github.com/eddiemf/vue-scrollactive">vue-scrollactive</a> and vue-announce (screen reader lib)</h1>
+      <page-header>
+        <template slot="title">This page uses vue-affix, vue-scrollactive and vue-announce (screen reader lib)</template>
+      </page-header>
+
       <div class="flex">
         <aside class="menu-sidebar">
           <affix class="menu-sidebar-content" relative-element-selector="#menu-cats" :offset="{top: 100, bottom: 80}">
@@ -37,6 +40,7 @@
 <script>
 import { mapActions } from 'vuex';
 import API from '@/api/menu';
+import PageHeader from '@/components/PageHeader';
 import MenuListItem from '@/components/menu/MenuListItem';
 
 export default {
@@ -48,6 +52,7 @@ export default {
     };
   },
   components: {
+    PageHeader,
     MenuListItem
   },
   methods: {

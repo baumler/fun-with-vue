@@ -1,6 +1,9 @@
 <template>
   <div class="content">
-    <h1 class="textCentered">Vue Focus Lock</h1>
+    <page-header>
+      <template slot="title">Vue Focus Lock</template>
+    </page-header>
+
     <div>
       <button>I do nothing!</button><br/><br/>
       some fun stuff here<br/><br/>
@@ -20,10 +23,12 @@
 <script>
 import { mapActions } from 'vuex';
 import FocusLock from 'vue-focus-lock';
+import PageHeader from '@/components/PageHeader';
 import Modal from '../components/TheModal.vue';
 
 export default {
   components: {
+    PageHeader,
     FocusLock,
     Modal
   },
