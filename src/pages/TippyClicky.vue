@@ -15,26 +15,28 @@
     </div>
     <br/>
     <br/>
-    <h3>Hover over (or tab to) these buttons for a cool tips!</h3>
+    <h3>Hover over (or tab to) these buttons for a cool tips! (todo, trap tabs inside/outside tips)</h3>
     <div class="inlines">
       <button class="btn" v-tippy="{ placement : 'right',  arrow: true }" title="A simple title here">Hover over me</button>
       <button class="btn" v-tippy="{ html : '#contentpopup1',  placement : 'bottom',  arrow: true }">Hover over me</button>
       <div id="contentpopup1" class="hidden">I am a separate div on the page!</div>
       <a href="#" v-tippy="{ html : '#contentpopup2', interactive : true, reactive : true }">Hover over me (a link)</a>
-      <div id="contentpopup2">
-        <div>
-          <h3>Header</h3>
-          <p style="color: pink"> {{ message }} - data binding</p>
-          <button @click="clicked">Click</button>
-          <button @click="reset">Reset</button>
+      <focus-lock :disabled="!focusLock">
+        <div id="contentpopup2">
+          <div>
+            <h3>Header</h3>
+            <p style="color: pink"> {{ message }} - data binding</p>
+            <button @click="clicked">Click</button>
+            <button @click="reset">Reset</button>
+          </div>
         </div>
-      </div>
+      </focus-lock>
     </div>
     <br/>
     <br/>
     <h3>Floating labels</h3>
     <float-label for="email">
-      <input type="email" id="email" name="email" placeholder="E-mail">
+      <input type="email" id="email" name="email" class="retFocus" placeholder="E-mail">
     </float-label>
     <br/><br/>
     <float-label>
@@ -53,6 +55,7 @@
 import Vue from 'vue';
 import VueFloatLabel from 'vue-float-label';
 import ClickOutside from 'vue-click-outside';
+import FocusLock from 'vue-focus-lock';
 import PageHeader from '@/components/PageHeader';
 
 Vue.use(VueFloatLabel);
@@ -60,12 +63,15 @@ Vue.use(VueFloatLabel);
 export default {
   directives: { ClickOutside, VueFloatLabel },
   components: {
-    PageHeader
+    PageHeader,
+    FocusLock
   },
   data() {
     return {
       showMenuContainer: false,
-      message: 'I have reactive content and html elements'
+      message: 'I have reactive content and html elements',
+      focusLock: false,
+      focusReturn: '.retFocus'
     };
   },
   computed: {
