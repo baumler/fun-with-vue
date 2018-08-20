@@ -38,5 +38,13 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  .myImg {
+    max-width: 100%;
+  }
+
+  .background {
+    width: 300px;
+    height: 300px;
+  }
 </style>

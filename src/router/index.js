@@ -11,19 +11,27 @@ import Breakpoints from '@/pages/BreakPoints';
 import FocusLock from '@/pages/FocusLock';
 import Calendar from '@/pages/A11yCalendar';
 import GridFun from '@/pages/GridFun';
+import BottomFixedButton from '@/pages/BottomFixedButton';
 
 Vue.use(Router);
 
 const siteTitle = 'Vue fun';
 
 const router = new Router({
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
+  },
   routes: [
     {
       path: '/',
       name: 'Home',
       component: Home,
       meta: {
-        title: `${siteTitle} - Home`
+        title: 'Home'
       }
     },
     {
@@ -31,7 +39,7 @@ const router = new Router({
       name: 'Side Menu',
       component: SideMenu,
       meta: {
-        title: `${siteTitle} - Menu`,
+        title: 'Menu',
         requiresAuth: true
       }
     },
@@ -40,7 +48,7 @@ const router = new Router({
       name: 'Draggable',
       component: Draggable,
       meta: {
-        title: `${siteTitle} - Draggable`
+        title: 'Draggable'
       }
     },
     /* {
@@ -48,7 +56,7 @@ const router = new Router({
       name: 'Images',
       component: Images,
       meta: {
-        title: `${siteTitle} - Images`
+        title: 'Images'
       }
     }, */
     {
@@ -56,7 +64,7 @@ const router = new Router({
       name: 'TippyClicky',
       component: TippyClicky,
       meta: {
-        title: `${siteTitle} - TippyClicky`
+        title: 'TippyClicky'
       }
     },
     {
@@ -64,7 +72,7 @@ const router = new Router({
       name: 'StyleGuide',
       component: StyleGuide,
       meta: {
-        title: `${siteTitle} - StyleGuide`
+        title: 'StyleGuide'
       }
     },
     {
@@ -72,7 +80,7 @@ const router = new Router({
       name: 'Breakpoints',
       component: Breakpoints,
       meta: {
-        title: `${siteTitle} - Breakpoints`
+        title: 'Breakpoints'
       }
     },
     {
@@ -80,7 +88,7 @@ const router = new Router({
       name: 'FocusLock',
       component: FocusLock,
       meta: {
-        title: `${siteTitle} - FocusLock`
+        title: 'FocusLock'
       }
     },
     {
@@ -88,7 +96,7 @@ const router = new Router({
       name: 'Calendar',
       component: Calendar,
       meta: {
-        title: `${siteTitle} - Calendar`
+        title: 'Calendar'
       }
     },
     {
@@ -96,7 +104,15 @@ const router = new Router({
       name: 'Grid',
       component: GridFun,
       meta: {
-        title: `${siteTitle} - Grid`
+        title: 'Grid'
+      }
+    },
+    {
+      path: '/fixedBottom',
+      name: 'FixedToBottom',
+      component: BottomFixedButton,
+      meta: {
+        title: 'FixedToBottom'
       }
     },
     {
@@ -104,7 +120,7 @@ const router = new Router({
       name: 'VueLibList',
       component: VueLibList,
       meta: {
-        title: `${siteTitle} - VueLibList`
+        title: 'VueLibList'
       }
     }
   ],
@@ -112,7 +128,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title; // change title
+  document.title = `${siteTitle} - ${to.meta.title}`; // change title
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.

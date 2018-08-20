@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     ...mapState({
-      focusTrap: state => state.Common.focusTrap
+      focusTrap: state => state.Modals.focusTrap
     })
   },
   methods: {

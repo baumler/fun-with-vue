@@ -51,8 +51,8 @@ export default {
   },
   computed: {
     ...mapState({
-      modalClass: state => state.Common.modalClass,
-      modal: state => state.Common.modal
+      modalClass: state => state.Modals.modalClass,
+      modal: state => state.Modals.modal
     }),
     isOpen() {
       if (this.modal.active && this.modal.openName === this.openName) {

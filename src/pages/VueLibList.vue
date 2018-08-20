@@ -50,11 +50,6 @@ export default {
           title: 'vue-zoom-on-hover'
         },
         {
-          url: 'https://github.com/raniesantos/vue-error-page',
-          title: 'vue-error-page',
-          desc: 'not working correctly'
-        },
-        {
           url: 'https://github.com/hilongjw/vue-lazyload',
           title: 'vue-lazyload'
         },

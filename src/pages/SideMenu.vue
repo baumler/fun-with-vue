@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <div class="menu" v-if="isLoaded">
       <page-header>
         <template slot="title">This page uses vue-affix, vue-scrollactive and vue-announce (screen reader lib)</template>
@@ -89,11 +89,20 @@ export default {
                   this.isLoaded = true;
                 }
               })
-              .catch((err) => console.log(err));
+              .catch((err) => {
+                console.log(err);
+              });
           }
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        if (err.response.status === 404) {
+          this.$_error('404', {
+            menu_cat: 'nothing here, just testing'
+          });
+        }
+      });
   }
 };
 </script>

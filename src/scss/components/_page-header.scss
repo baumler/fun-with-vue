@@ -1,0 +1,19 @@
+.page-header {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: white;
+  border-bottom: 2px solid green;
+  z-index: map_get($zIndexing, fixed);
+  transition: all 0.3s;
+
+  & > * {
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+}

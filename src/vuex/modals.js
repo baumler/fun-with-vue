@@ -66,7 +66,11 @@ const mutations = {
     const body = document.querySelector('body');
     document.querySelector('html').classList.remove('-isLocked');
     body.style.top = '0';
-    window.scrollTo(0, mState.bodyScroll);
+    // window.scrollTo(0, mState.bodyScroll);
+    window.scrollTo({
+      top: mState.bodyScroll,
+      behavior: 'smooth'
+    });
     mState.bodyScroll = 0;
     this.commit('clearOverlay');
   },

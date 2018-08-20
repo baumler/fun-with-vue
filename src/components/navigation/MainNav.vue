@@ -1,7 +1,7 @@
 <template>
   <ul class="nav">
     <li class="nav-item" v-for="(route, i) in routes" :key="i">
-      <router-link :to="route" class="nav-link">
+      <router-link :to="route" class="nav-link" @click.native="submitEvent">
         {{ route.name }}
       </router-link>
     </li>
@@ -24,25 +24,46 @@ export default {
       }
       return routes;
     }
+  },
+  methods: {
+    submitEvent() {
+      this.$emit('clickedLink');
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .nav {
-  display: flex;
-  align-items: center;
-  height: 40px;
-  padding: 0 2rem;
+  padding: 0;
   margin: 0;
   list-style: none;
 
   li {
+    display: block;
     list-style: none;
 
-    a {
-      padding: 0 1rem;
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
     }
   }
+
+  /*@media (min-width: 48rem) {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 2rem;
+
+    li {
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+
+      a {
+        padding: 0 1rem;
+        text-align: center;
+      }
+    }
+  }*/
 }
 </style>

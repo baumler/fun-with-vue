@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     ...mapState({
-      focusTrap: state => state.Common.focusTrap
+      focusTrap: state => state.Modals.focusTrap
     })
   },
   methods: {
@@ -50,13 +50,6 @@ export default {
 </script>
 
 <style lang="scss">
-  .drawer-buttons {
-    padding: 2rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
   .vue-drawer__main {
     padding: 1rem;
   }

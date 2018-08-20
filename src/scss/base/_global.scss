@@ -23,7 +23,7 @@ html.-isLocked {
 	body {
 		position: fixed;
 		width: 100vw;
-	}
+  }
 }
 
 body {
@@ -46,33 +46,8 @@ a {
 	}
 }
 
-.page-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: white;
-  border-bottom: 2px solid green;
-  z-index: map_get($zIndexing, fixed);
-}
-
 .content {
-	padding: 0 1rem;
-
-  .myImg {
-    max-width: 100%;
-  }
-
-  .smallImage {
-    width: 400px;
-    height: 200px;
-    background-color: green;
-  }
-
-  .background {
-    width: 300px;
-    height: 300px;
-  }
+	padding: 1rem;
 }
 
 /*

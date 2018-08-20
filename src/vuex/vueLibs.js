@@ -57,10 +57,10 @@ const state = {
       url: 'https://github.com/robinvdvleuten/vuex-persistedstate',
       title: 'vuex-persistedstate'
     }, */
-    /* {
+    {
       url: 'https://github.com/raniesantos/vue-error-page',
       title: 'vue-error-page'
-    }, */
+    },
     /* {
       url: 'https://github.com/hilongjw/vue-lazyload',
       title: 'vue-lazyload'

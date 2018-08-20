@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     ...mapState({
-      drawer: state => state.Common.drawer
+      drawer: state => state.Modals.drawer
     }),
     isOpen() {
       if (this.drawer.active && this.drawer.openName === this.openName) {
