@@ -11,7 +11,7 @@
       </div>
     </span>
 
-    <div>Vue with Vue</div>
+    <div>Fun with Vue</div>
 
     <slot></slot>
   </div>
@@ -86,7 +86,7 @@ export default {
     &-dd {
       position: absolute;
       left: 0;
-      top: -4px;
+      top: 40px;
       width: 96vw;
       max-width: 200px;
       padding: 1rem;

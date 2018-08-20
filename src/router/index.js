@@ -12,6 +12,7 @@ import FocusLock from '@/pages/FocusLock';
 import Calendar from '@/pages/A11yCalendar';
 import GridFun from '@/pages/GridFun';
 import BottomFixedButton from '@/pages/BottomFixedButton';
+import p404 from '@/pages/errors/404';
 
 Vue.use(Router);
 
@@ -122,7 +123,10 @@ const router = new Router({
       meta: {
         title: 'VueLibList'
       }
-    }
+    },
+    // do not include 'name' for these so they do not show up in the navigation list
+    { path: '/404', component: p404 },
+    { path: '*', redirect: '/404' }
   ],
   linkExactActiveClass: 'active'
 });

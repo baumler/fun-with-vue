@@ -1,8 +1,10 @@
 <template>
-  <div>
+  <div class="content">
     <h1>404 Error</h1>
-    <p>The resource could not be found.</p>
-    <p>{{ payload.error }}</p>
+    <span v-if="payload">
+      <p>The resource could not be found.</p>
+      <p>{{ payload.error }}</p>
+    </span>
     <router-link to="/" exact>
       Go to home page
     </router-link>

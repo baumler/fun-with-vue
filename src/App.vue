@@ -115,5 +115,9 @@ export default {
     display: flex;
     // justify-content: space-around;
     align-items: center;
+
+    button:first-child {
+      margin-right: 1rem;
+    }
   }
 </style>
