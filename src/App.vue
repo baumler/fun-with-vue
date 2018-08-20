@@ -62,30 +62,30 @@ export default {
       this.openDrawer(['draw2er', '.d1d']);
     },
     setBrowser() {
-      // get browser info
-      const userAgent = window.navigator.userAgent;
-      let contentHeight = window.innerHeight - 50;
-      let mobile = false;
-
-      // are we on mobile?
-      if (userAgent.indexOf('Mobile') !== -1) {
-        mobile = true;
-
-        // are we on safari? are we NOT on chrome?
-        if (userAgent.indexOf('Safari') !== -1 && userAgent.indexOf('Chrome') === -1) {
-          contentHeight -= 40;
-        }
-      }
-
-      this.setContentHeight({
-        window: window.innerHeight,
-        height: contentHeight,
-        browser: userAgent,
-        isMobile: mobile
-      });
-
       const target = document.querySelector('.content');
       if (target.classList.contains('hasFixedBottom')) {
+        // get browser info
+        const userAgent = window.navigator.userAgent;
+        let contentHeight = window.innerHeight - 50;
+        let mobile = false;
+
+        // are we on mobile?
+        if (userAgent.indexOf('Mobile') !== -1) {
+          mobile = true;
+
+          // are we on safari? are we NOT on chrome?
+          if (userAgent.indexOf('Safari') !== -1 && userAgent.indexOf('Chrome') === -1) {
+            contentHeight -= 40;
+          }
+        }
+
+        this.setContentHeight({
+          window: window.innerHeight,
+          height: contentHeight,
+          browser: userAgent,
+          isMobile: mobile
+        });
+
         target.style.height = `${contentHeight}px`;
       }
     },
