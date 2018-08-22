@@ -33,23 +33,27 @@
     top: 0;
     right: 0;
     transform: translateX(102%);
+    transition: transform 0.3s;
   }
 
   .drawer-left {
     top: 0;
     left: 0;
     transform: translateX(-102%);
+    transition: transform 0.3s;
   }
 
   .drawer-top {
     top: 0;
     left: 0;
     transform: translateY(-102%);
+    transition: transform 0.3s;
   }
 
   .drawer-bottom {
     bottom: 0;
     left: 0;
     transform: translateY(102%);
+    transition: transform 0.3s;
   }
 }
