@@ -26,10 +26,6 @@ html.-isLocked {
   }
 }
 
-body {
-  margin-top: 50px;
-}
-
 #app {
 	@include breakpoint(xLarge) {
 		max-width: 1440px;

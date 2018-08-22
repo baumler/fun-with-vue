@@ -1,3 +1,9 @@
+$header-height: 50px;
+
+.header-shim {
+  height: $header-height;
+}
+
 .page-header {
   display: flex;
   align-items: center;
@@ -5,7 +11,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 50px;
+  height: $header-height;
   background-color: white;
   border-bottom: 2px solid green;
   z-index: map_get($zIndexing, fixed);

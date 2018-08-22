@@ -7,6 +7,7 @@
           <button class="d2d btn" @click.prevent="openFocus2Drawer">show drawer 2</button>
         </div>
       </navigation>
+      <div class="header-shim"></div>
 
       <app-view></app-view>
     </div>
