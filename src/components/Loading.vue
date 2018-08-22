@@ -1,7 +1,7 @@
 <template>
   <transition-group v-show="loader" name="fade" appear>
     <div class="loading" key="spinner">
-      <spring-spinner
+      <semipolar-spinner
         :animation-duration="spinnerOptions.duration"
         :size="spinnerOptions.size"
         :color="spinnerOptions.color"
@@ -13,11 +13,11 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { SpringSpinner } from 'epic-spinners';
+import { SemipolarSpinner } from 'epic-spinners';
 
 export default {
   components: {
-    SpringSpinner
+    SemipolarSpinner
   },
   data() {
     return {

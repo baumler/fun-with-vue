@@ -1,10 +1,80 @@
 // Vue
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.3s linear;
 }
-.fade-enter, .fade-leave-to  {
+.fade-enter,
+.fade-leave-to  {
   opacity: 0;
 }
+.fade-enter-to,
+.fade-leave {
+  opacity: 1;
+}
+
+.flip-down-enter,
+.flip-down-leave-to {
+  opacity: 0;
+  transform: rotateX(90deg);
+  transform-origin: top center;
+}
+.flip-down-enter-to,
+.flip-down-leave {
+  opacity: 1;
+  transform: rotateX(0deg);
+  transform-origin: top center;
+}
+
+.flip-up-enter-active,
+.flip-up-leave-active,
+.flip-left-enter-active,
+.flip-left-leave-active,
+.flip-down-enter-active,
+.flip-down-leave-active,
+.flip-right-enter-active,
+.flip-right-leave-active {
+  transition: opacity, transform 300ms ease-out;
+}
+
+.flip-right-enter,
+.flip-right-leave-to {
+  opacity: 0;
+  transform: rotateY(90deg);
+  transform-origin: left center;
+}
+.flip-right-enter-to,
+.flip-right-leave {
+  opacity: 1;
+  transform: rotateY(0deg);
+  transform-origin: left center;
+}
+
+.flip-left-enter,
+.flip-left-leave-to {
+  opacity: 0;
+  transform: rotateY(90deg);
+  transform-origin: right center;
+}
+.flip-left-enter-to,
+.flip-left-leave {
+  opacity: 1;
+  transform: rotateY(0deg);
+  transform-origin: right center;
+}
+
+.flip-up-enter,
+.flip-up-leave-to {
+  opacity: 0;
+  transform: rotateX(90deg);
+  transform-origin: bottom center;
+}
+.flip-up-enter-to,
+.flip-up-leave {
+  opacity: 1;
+  transform: rotateX(0deg);
+  transform-origin: bottom center;
+}
+
 
 // links
 a {

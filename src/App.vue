@@ -9,7 +9,9 @@
       </navigation>
       <div class="header-shim"></div>
 
-      <app-view></app-view>
+      <transition :name="transitionName">
+        <app-view></app-view>
+      </transition>
     </div>
 
     <loading/>
@@ -25,6 +27,7 @@
 </template>
 
 <script>
+import _random from 'lodash/random';
 import { mapState, mapActions } from 'vuex';
 import { Validator } from 'vee-validate';
 import dictionary from './validation';
@@ -45,7 +48,8 @@ export default {
   },
   data() {
     return {
-      resizeTimeout: null
+      resizeTimeout: null,
+      transitionName: 'flip-down'
     };
   },
   computed: {
@@ -104,6 +108,17 @@ export default {
   mounted() {
     this.setBrowser();
     window.addEventListener('resize', this.resizeThrottler, false);
+  },
+  watch: {
+    '$route' (to, from) {
+      const trans = ['flip-right', 'flip-down', 'flip-left', 'flip-up'];
+      const rand = _random(3);
+      this.transitionName = trans[rand];
+
+      /* const toDepth = to.path.split('/').length;
+      const fromDepth = from.path.split('/').length;
+      this.transitionName = toDepth < fromDepth ? 'flip-right' : 'flip-down'; */
+    }
   }
 };
 </script>
