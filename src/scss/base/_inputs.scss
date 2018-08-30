@@ -15,17 +15,17 @@ label {
     }
 
     input, select, textarea {
-      border-color: red;
+      border-color: $red;
     }
 
     .selectDiv { // div around selects that hold the border
-      border-color: red;
+      border-color: $red;
     }
 
     .errorMessage {
       margin-left: 0.5em;
       padding-top: 0.5em;
-      color: red;
+      color: $red;
       font-size: 12px;
       font-weight: 400;
     }
@@ -44,7 +44,7 @@ input, select, textarea {
   border-radius: 3px;
 
   &::placeholder {
-    color: #656565;
+    color: $gray;
   }
 }
 

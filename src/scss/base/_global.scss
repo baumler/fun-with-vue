@@ -27,23 +27,28 @@ html.-isLocked {
 }
 
 #app {
-	@include breakpoint(xLarge) {
+	/*@include breakpoint(xLarge) {
 		max-width: 1440px;
     margin: auto;
-	}
+	}*/
 }
 
 a {
-	color: green;
+	color: $green;
 	text-decoration: none;
 	
 	&.active {
-		color: red;
+		color: crimson;
 	}
 }
 
 .content {
 	padding: 1rem;
+
+  @include breakpoint(xLarge) {
+    max-width: 1440px;
+    margin: auto;
+  }
 }
 
 /*
@@ -52,3 +57,29 @@ a {
   box-shadow: 0px 0px 12px 1px rgba(145, 145, 145, 1);
 }
 */
+
+.bg-red {
+  background-color: $red;
+}
+
+.bg-blue {
+  background-color: $blue;
+}
+
+.bg-green {
+  background-color: $green;
+}
+
+.bg-gray {
+  background-color: $gray;
+}
+
+.bg-gray-light {
+  background-color: $grayLight;
+}
+
+footer {
+	background-color: $green;
+	color: white;
+	padding: 2rem;
+}

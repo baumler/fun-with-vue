@@ -9,9 +9,20 @@
       </navigation>
       <div class="header-shim"></div>
 
-      <transition :name="transitionName">
-        <app-view></app-view>
-      </transition>
+      <div class="main-page">
+        <transition
+            :name="transitionName"
+            :mode="transitionMode"
+            :enter-active-class="transitionEnterActiveClass"
+            @beforeLeave="beforeLeave"
+            @enter="enter"
+            @afterEnter="afterEnter"
+        >
+          <app-view></app-view>
+        </transition>
+      </div>
+
+      <footer>JUST SOME FOOTER STUFF</footer>
     </div>
 
     <loading/>
@@ -27,8 +38,8 @@
 </template>
 
 <script>
-import _random from 'lodash/random';
 import _each from 'lodash/each';
+import _random from 'lodash/random';
 import { mapState, mapActions } from 'vuex';
 import { Validator } from 'vee-validate';
 import dictionary from './validation';
@@ -40,6 +51,9 @@ import AllDrawers from '@/AllDrawers';
 
 Validator.localize(dictionary);
 
+const DEFAULT_TRANSITION = 'slide-right';
+const DEFAULT_TRANSITION_MODE = 'out-in';
+
 export default {
   components: {
     Loading,
@@ -50,7 +64,11 @@ export default {
   data() {
     return {
       resizeTimeout: null,
-      transitionName: 'flip-down'
+      transitionTypes: ['fade-height', 'slide-left', 'slide-right'],
+      transitionName: DEFAULT_TRANSITION,
+      transitionMode: DEFAULT_TRANSITION_MODE,
+      transitionEnterActiveClass: '',
+      prevHeight: 0
     };
   },
   computed: {
@@ -121,6 +139,21 @@ export default {
           });
         });
       }
+    },
+    beforeLeave(element) {
+      this.prevHeight = getComputedStyle(element).height;
+    },
+    enter(element) {
+      const { height } = getComputedStyle(element);
+
+      element.style.height = this.prevHeight;
+
+      setTimeout(() => {
+        element.style.height = height;
+      });
+    },
+    afterEnter(element) {
+      element.style.height = 'auto';
     }
   },
   mounted() {
@@ -128,14 +161,44 @@ export default {
     this.setBrowser();
     window.addEventListener('resize', this.resizeThrottler, false);
   },
+  created() {
+    this.$router.beforeEach((to, from, next) => {
+      let rand = _random(this.transitionTypes.length - 1);
+      if (this.transitionTypes[rand] === this.transitionName) {
+        if (rand === this.transitionTypes.length - 1) {
+          rand = rand - 1;
+        } else {
+          rand = rand + 1;
+        }
+      }
+      /* let transitionName = to.meta.transitionName || from.meta.transitionName || DEFAULT_TRANSITION; */
+      let transitionName = this.transitionTypes[rand];
+
+      if (transitionName === 'slide') {
+        const toDepth = to.path.split('/').length;
+        const fromDepth = from.path.split('/').length;
+        transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
+      }
+
+      this.transitionMode = DEFAULT_TRANSITION_MODE;
+      this.transitionEnterActiveClass = `${transitionName}-enter-active`;
+
+      if (from.meta.transitionName === 'zoom') {
+        this.transitionMode = null;
+        this.transitionEnterActiveClass = null;
+        document.body.style.overflow = null;
+      }
+
+      this.transitionName = transitionName;
+      this.handleDelayedActions();
+      next();
+    });
+  }/* ,
   watch: {
     '$route' (to, from) {
-      const trans = ['flip-right', 'flip-down', 'flip-left', 'flip-up'];
-      const rand = _random(3);
-      this.transitionName = trans[rand];
       this.handleDelayedActions();
     }
-  }
+  } */
 };
 </script>
 

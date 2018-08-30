@@ -1,6 +1,6 @@
 .aCalendar {
   .calendar {
-    border: 1px solid green;
+    border: 1px solid $green;
 
     &__header {
       justify-content: space-around;
@@ -28,8 +28,7 @@
 
     &__head {
       background-color: transparent;
-      // border-top: 1px solid green;
-      background-color: green;
+      background-color: $green;
       color: white;
     }
 
@@ -45,7 +44,7 @@
 
     &__day {
       &--active {
-        background-color: yellow;
+        background-color: $blue;
       }
     }
 

@@ -7,11 +7,11 @@
 
     <h3>Columns: 4 to 3 to 2 to 1</h3>
     <the-grid :columns="$mq | mq({ phone: 1, tablet: 2, desktop: 3, hd: 4 })" justify="start" alignment="start">
-      <div class="flex flex-justify-center flex-align-center">Spot 1</div>
-      <div class="flex flex-justify-center flex-align-center">Spot 2</div>
-      <div class="flex flex-justify-center flex-align-center">Spot 3</div>
-      <div class="flex flex-justify-center flex-align-center">Spot 4</div>
-      <div class="flex flex-justify-center flex-align-center">Spot 5</div>
+      <div class="flex flex-justify-center flex-align-center bg-red">Spot 1</div>
+      <div class="flex flex-justify-center flex-align-center bg-green">Spot 2</div>
+      <div class="flex flex-justify-center flex-align-center bg-blue">Spot 3</div>
+      <div class="flex flex-justify-center flex-align-center bg-gray">Spot 4</div>
+      <div class="flex flex-justify-center flex-align-center bg-gray-light">Spot 5</div>
       <div class="flex flex-justify-center flex-align-center">Spot 6</div>
       <div class="flex flex-justify-center flex-align-center">Spot 7</div>
       <div class="flex flex-justify-center flex-align-center">Spot 8</div>

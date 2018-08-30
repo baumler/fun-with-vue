@@ -1,4 +1,5 @@
 // Vue
+// ------ FADES -----------------------------
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s linear;
@@ -12,6 +13,23 @@
   opacity: 1;
 }
 
+.fade-height-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+  transition-property: height, opacity;
+  overflow: hidden;
+}
+.fade-height-enter,
+.fade-height-leave-to  {
+  opacity: 0;
+}
+.fade-height-enter-to,
+.fade-height-leave {
+  opacity: 1;
+}
+
+// ------ FLIPS -----------------------------
 .flip-down-enter,
 .flip-down-leave-to {
   opacity: 0;
@@ -75,6 +93,51 @@
   transform-origin: bottom center;
 }
 
+// ------ SLIDES -----------------------------
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition-duration: 0.5s;
+  transition-property: height, opacity, transform;
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  overflow: hidden;
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate(2em, 0);
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  transform: translate(-2em, 0);
+}
+
+// ------ ZOOMS -----------------------------
+.zoom-enter-active,
+.zoom-leave-active {
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-name: zoom;
+}
+
+.zoom-leave-active {
+  animation-direction: reverse;
+}
+
+@keyframes zoom {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 
 // links
 a {

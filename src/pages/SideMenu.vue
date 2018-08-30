@@ -108,5 +108,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import "../scss/components/menu";
 </style>
