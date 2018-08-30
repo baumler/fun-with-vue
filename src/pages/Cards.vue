@@ -146,6 +146,9 @@ export default {
         'font-size': '2rem'
       });
     }
+  },
+  mounted() {
+    this.$store.commit('addDelayedAction', {key: 'showConsoleComment', action: 'showConsoleComment'});
   }
 };
 </script>

@@ -28,6 +28,7 @@
 
 <script>
 import _random from 'lodash/random';
+import _each from 'lodash/each';
 import { mapState, mapActions } from 'vuex';
 import { Validator } from 'vee-validate';
 import dictionary from './validation';
@@ -55,11 +56,19 @@ export default {
   computed: {
     ...mapState({
       blurConfig: state => state.Modals.blurConfig,
-      overlayActive: state => state.Modals.overlayActive
+      overlayActive: state => state.Modals.overlayActive,
+      delayedActions: state => state.Common.delayedActions,
+      numberOfDelayedActions: state => state.Common.numberOfDelayedActions
     })
   },
   methods: {
-    ...mapActions(['openDrawer', 'setContentHeight']),
+    ...mapActions([
+      'openDrawer',
+      'setContentHeight',
+      'performDelayedAction',
+      'removeDelayedAction',
+      'addDelayedAction'
+    ]),
     openFocusDrawer() {
       this.openDrawer(['draw1er', '.d2d']);
     },
@@ -103,9 +112,19 @@ export default {
           self.setBrowser();
         }, 300);
       }
+    },
+    handleDelayedActions() {
+      if (this.numberOfDelayedActions > 0) {
+        _each(this.delayedActions, (action, key) => {
+          this.performDelayedAction(key).then((data) => {
+            this.removeDelayedAction(data);
+          });
+        });
+      }
     }
   },
   mounted() {
+    // this.handleDelayedActions();
     this.setBrowser();
     window.addEventListener('resize', this.resizeThrottler, false);
   },
@@ -114,10 +133,7 @@ export default {
       const trans = ['flip-right', 'flip-down', 'flip-left', 'flip-up'];
       const rand = _random(3);
       this.transitionName = trans[rand];
-
-      /* const toDepth = to.path.split('/').length;
-      const fromDepth = from.path.split('/').length;
-      this.transitionName = toDepth < fromDepth ? 'flip-right' : 'flip-down'; */
+      this.handleDelayedActions();
     }
   }
 };
@@ -127,9 +143,7 @@ export default {
   @import "scss/main";
 
   .drawer-buttons {
-    // padding: 2rem;
     display: flex;
-    // justify-content: space-around;
     align-items: center;
 
     button:first-child {
