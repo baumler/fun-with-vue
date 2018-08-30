@@ -47,23 +47,5 @@ export default {
       margin-bottom: 0.5rem;
     }
   }
-
-  /*@media (min-width: 48rem) {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    padding: 0 2rem;
-
-    li {
-      &:not(:last-child) {
-        margin-bottom: 0;
-      }
-
-      a {
-        padding: 0 1rem;
-        text-align: center;
-      }
-    }
-  }*/
 }
 </style>
