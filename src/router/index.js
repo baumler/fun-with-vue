@@ -13,6 +13,7 @@ import Calendar from '@/pages/A11yCalendar';
 import GridFun from '@/pages/GridFun';
 import BottomFixedButton from '@/pages/BottomFixedButton';
 import p404 from '@/pages/errors/404';
+import CardPage from '@/pages/Cards';
 
 Vue.use(Router);
 
@@ -114,6 +115,14 @@ const router = new Router({
       component: BottomFixedButton,
       meta: {
         title: 'FixedToBottom'
+      }
+    },
+    {
+      path: '/cards',
+      name: 'Cards',
+      component: CardPage,
+      meta: {
+        title: 'Cards'
       }
     },
     {
