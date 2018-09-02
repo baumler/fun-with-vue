@@ -22,7 +22,9 @@ const store = new Vuex.Store({
 });
 
 store.subscribe((mutationSub, stateSub) => {
-  console.log('-> Store updated...', mutationSub, stateSub);
+  if (mutationSub.type !== 'routeModule/ROUTE_CHANGED') {
+    console.log('-> Store updated...', mutationSub, stateSub);
+  }
 });
 
 export default store;

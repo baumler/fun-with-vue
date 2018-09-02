@@ -193,12 +193,12 @@ export default {
       this.handleDelayedActions();
       next();
     });
-  }/* ,
+  },
   watch: {
     '$route' (to, from) {
       this.handleDelayedActions();
     }
-  } */
+  }
 };
 </script>
 

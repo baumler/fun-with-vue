@@ -12,22 +12,47 @@
   transition: all 1s ease-in-out;
 
   &.flip-vert {
-    &:hover {
-      transform: rotateX(180deg);
-    }
-
     .-back {
       transform: rotateX(180deg);
     }
   }
 
   &.flip-horz {
-    &:hover {
-      transform: rotateY(180deg);
-    }
-
     .-back {
       transform: rotateY(180deg);
+    }
+  }
+
+  &.hover-always {
+    &.flip-vert:hover {
+      transform: rotateX(180deg);
+    }
+
+    &.flip-horz:hover {
+      transform: rotateY(180deg);
+    }
+  }
+
+  &.click-always,
+  &.mobile-click {
+    &.flip-vert.flipped {
+      transform: rotateX(180deg);
+    }
+
+    &.flip-horz.flipped {
+      transform: rotateY(180deg);
+    }
+  }
+
+  &.mobile-click {
+    @include breakpoint(medium) {
+      &.flip-vert:hover {
+        transform: rotateX(180deg);
+      }
+
+      &.flip-horz:hover {
+        transform: rotateY(180deg);
+      }
     }
   }
 }
@@ -40,41 +65,77 @@
   backface-visibility: hidden;
 }
 
-.flip-card__container .-back {
-}
+
 
 .slide-card {
   position: relative;
   cursor: pointer;
   overflow: hidden;
 
-  &.slide-up:hover {
-    .slide-card__front {
-      top: -100%;
+  &.click-always,
+  &.mobile-click {
+    &.slide-up.slide {
+      .slide-card__front {
+        top: -100%;
+      }
+    }
+
+    &.slide-down.slide {
+      .slide-card__front {
+        top: 100%;
+      }
+    }
+
+    &.slide-left.slide {
+      .slide-card__front {
+        left: -100%;
+      }
+    }
+
+    &.slide-right.slide {
+      .slide-card__front {
+        left: 100%;
+      }
+    }
+
+    &.fade-out.slide {
+      .slide-card__front {
+        opacity: 0;
+      }
     }
   }
 
-  &.slide-down:hover {
-    .slide-card__front {
-      top: 100%;
-    }
-  }
+  &.mobile-click {
+    @include breakpoint(medium) {
+      &.slide-up:hover {
+        .slide-card__front {
+          top: -100%;
+        }
+      }
 
-  &.slide-left:hover {
-    .slide-card__front {
-      left: -100%;
-    }
-  }
+      &.slide-down:hover {
+        .slide-card__front {
+          top: 100%;
+        }
+      }
 
-  &.slide-right:hover {
-    .slide-card__front {
-      left: 100%;
-    }
-  }
+      &.slide-left:hover {
+        .slide-card__front {
+          left: -100%;
+        }
+      }
 
-  &.fade-out:hover {
-    .slide-card__front {
-      opacity: 0;
+      &.slide-right:hover {
+        .slide-card__front {
+          left: 100%;
+        }
+      }
+
+      &.fade-out:hover {
+        .slide-card__front {
+          opacity: 0;
+        }
+      }
     }
   }
 

@@ -1,10 +1,10 @@
 <template>
-  <div :class="['slide-card', transitionName]" :style="mainStyle">
-    <div class="slide-card__front" :style="frontStyle">
+  <div :class="['slide-card', slideType, transitionName, {'slide': slideToBack}]" :style="mainStyle">
+    <div class="slide-card__front" :style="frontStyle" v-hammer:tap="slideCard">
       <slot name="front"></slot>
     </div>
 
-    <div class="slide-card__back" :style="backStyle">
+    <div class="slide-card__back" :style="backStyle" v-hammer:press="slideCard">
       <slot name="back"></slot>
     </div>
   </div>
@@ -12,9 +12,23 @@
 
 <script>
 import _forEach from 'lodash/forEach';
+import Vue from 'vue';
+import { VueHammer } from 'vue2-hammer';
+VueHammer.config.press = {
+  time: 200
+};
+Vue.use(VueHammer);
 
 export default {
   props: {
+    slideType: {
+      type: String,
+      default: 'mobile-click',
+      validator: function (value) {
+        // The value must match one of these strings
+        return ['mobile-click', 'click-always'].indexOf(value) !== -1;
+      }
+    },
     transitionName: {
       type: String,
       default: 'slide-up'
@@ -33,7 +47,15 @@ export default {
     },
     cardBackStyles: {
       type: Object
+    },
+    cardId: {
+      type: String
     }
+  },
+  data() {
+    return {
+      slideToBack: false
+    };
   },
   computed: {
     mainStyle() {
@@ -59,6 +81,15 @@ export default {
       });
 
       return s;
+    }
+  },
+  methods: {
+    slideCard() {
+      if (this.slideType === 'mobile-click' && window.innerWidth <= 768) {
+        this.slideToBack = !this.slideToBack;
+      } else {
+        this.slideToBack = !this.slideToBack;
+      }
     }
   }
 };

@@ -35,6 +35,7 @@
     "vue-router": "^3.0.1",
     "vue-scrollactive": "^0.6.1",
     "vue-tippy": "^2.0.18",
+    "vue2-hammer": "^2.0.1",
     "vuedraggable": "^2.16.0",
     "vuex": "^3.0.1",
     "vuex-router-sync": "^5.0.0"

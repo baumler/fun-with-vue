@@ -2,10 +2,12 @@
   <div class="content">
     <div class="grid">
       <flip-card
+          flip-type="click-always"
           transition-name="flip-horz"
           :card-main-styles="flipCardMainDefaults"
           :card-front-styles="flipCardFrontDefaults"
           :card-back-styles="flipCardBackDefaults"
+          card-id="card1"
       >
         <div slot="front"><img src="https://picsum.photos/200/300/?random/?gravity=north"/></div>
         <div slot="back">
@@ -14,15 +16,18 @@
       </flip-card>
 
       <flip-card
+          flip-type="mobile-click"
           transition-name="flip-vert"
           :card-main-styles="flipCardMainDefaults"
           :card-front-styles="flipCardFrontDefaults"
           :card-back-styles="flipCardBackDefaults"
+          card-id="card2"
       >
         <div slot="front"><img src="https://picsum.photos/200/300/?random/?gravity=center"/></div>
         <div slot="back">
           <p>The particle is more ship now than spacecraft. chemical and pedantically ship-wide.</p>
           <p>The transformator is oddly united. Ships die on paralysis at subspace!</p>
+          <button @click.prevent="buttonClick">click me</button>
         </div>
       </flip-card>
     </div>
@@ -30,36 +35,43 @@
 
     <div class="grid">
       <slide-card
+          slide-type="mobile-click"
           transition-name="slide-up"
           :card-main-styles="slideCardMainDefaults"
           :card-front-styles="slideCardFrontDefaults"
           :card-back-styles="slideCardBackDefaults"
+          card-id="scard1"
       >
         <div slot="front"><img src="https://picsum.photos/200/300/?gravity=south"/></div>
         <div slot="back">BACK</div>
       </slide-card>
 
       <slide-card
+          slide-type="click-always"
           transition-name="slide-down"
           :card-main-styles="slideCardMainDefaults"
           :card-front-styles="slideCardFrontDefaults"
           :card-back-styles="slideCardBackDefaults"
+          card-id="scard2"
       >
         <div slot="front"><img src="https://picsum.photos/200/300/?gravity=north"/></div>
         <div slot="back">BACK</div>
       </slide-card>
 
       <slide-card
+          slide-type="click-always"
           transition-name="slide-left"
           :card-main-styles="slideCardMainDefaults"
           :card-front-styles="slideCardFrontDefaults"
           :card-back-styles="slideCardBackDefaults"
+          card-id="scard3"
       >
         <div slot="front"><img src="https://picsum.photos/200/300/?gravity=center"/></div>
         <div slot="back">BACK</div>
       </slide-card>
 
       <slide-card
+          slide-type="click-always"
           transition-name="slide-right"
           :card-main-styles="slideCardMainDefaults"
           :card-front-styles="slideCard1FrontStyles"
@@ -70,10 +82,12 @@
       </slide-card>
 
       <slide-card
+          slide-type="mobile-click"
           transition-name="fade-out"
           :card-main-styles="slideCardMainDefaults"
           :card-front-styles="slideCardFrontDefaults"
           :card-back-styles="slideCardBackDefaults"
+          card-id="scard4"
       >
         <div slot="front"><img src="https://picsum.photos/200/300/?random"/></div>
         <div slot="back">BACK</div>
@@ -147,8 +161,10 @@ export default {
       });
     }
   },
-  mounted() {
-    this.$store.commit('addDelayedAction', {key: 'showConsoleComment', action: 'showConsoleComment'});
+  methods: {
+    buttonClick() {
+      console.log('you clicked the button');
+    }
   }
 };
 </script>

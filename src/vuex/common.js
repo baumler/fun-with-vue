@@ -14,6 +14,7 @@ const actions = {
     context.commit('setContentHeight', data);
   },
   addDelayedAction(context, data) {
+    console.log('addDelayedAction');
     context.commit('addDelayedAction', data);
   },
   removeDelayedAction(context, data) {
@@ -23,9 +24,6 @@ const actions = {
     return new Promise((resolve, reject) => {
       context.commit('performDelayedAction', { key: data, resolve: resolve, reject: reject });
     });
-  },
-  showConsoleComment(context) {
-    console.log('delayed console log message');
   }
 };
 

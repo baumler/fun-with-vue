@@ -1,11 +1,11 @@
 <template>
-  <div class="flip-card" :style="mainStyle">
-    <div :class="['flip-card__container', transitionName]">
-      <div class="flip-card__side" :style="frontStyle">
+  <div class="flip-card" :style="mainStyle" :id="cardId">
+    <div :class="['flip-card__container', flipType, transitionName, {'flipped': flipToBack}]">
+      <div class="flip-card__side" :style="frontStyle" v-hammer:tap="flipCard">
         <slot name="front"></slot>
       </div>
 
-      <div class="flip-card__side -back" :style="backStyle">
+      <div class="flip-card__side -back" :style="backStyle" v-hammer:press="flipCard">
         <slot name="back"></slot>
       </div>
     </div>
@@ -14,9 +14,23 @@
 
 <script>
 import _forEach from 'lodash/forEach';
+import Vue from 'vue';
+import { VueHammer } from 'vue2-hammer';
+VueHammer.config.press = {
+  time: 200
+};
+Vue.use(VueHammer);
 
 export default {
   props: {
+    flipType: {
+      type: String,
+      default: 'mobile-click',
+      validator: function (value) {
+        // The value must match one of these strings
+        return ['mobile-click', 'click-always', 'hover-always'].indexOf(value) !== -1;
+      }
+    },
     transitionName: {
       type: String,
       default: 'flip-vert'
@@ -35,7 +49,15 @@ export default {
     },
     cardBackStyles: {
       type: Object
+    },
+    cardId: {
+      type: String
     }
+  },
+  data() {
+    return {
+      flipToBack: false
+    };
   },
   computed: {
     mainStyle() {
@@ -61,6 +83,15 @@ export default {
       });
 
       return s;
+    }
+  },
+  methods: {
+    flipCard() {
+      if (this.flipType === 'mobile-click' && window.innerWidth <= 768) {
+        this.flipToBack = !this.flipToBack;
+      } else if (this.flipType === 'click-always') {
+        this.flipToBack = !this.flipToBack;
+      }
     }
   }
 };
