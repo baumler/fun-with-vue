@@ -27,16 +27,12 @@ html.-isLocked {
 }
 
 #app {
-	@include breakpoint(xLarge) {
-		max-width: 1440px;
-    margin: auto;
-	}
 }
 
 a {
 	color: green;
 	text-decoration: none;
-	
+
 	&.active {
 		color: red;
 	}
@@ -44,6 +40,11 @@ a {
 
 .content {
 	padding: 1rem;
+
+	@include breakpoint(xLarge) {
+		max-width: 1440px;
+		margin: auto;
+	}
 }
 
 /*
