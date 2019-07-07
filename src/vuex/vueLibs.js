@@ -87,6 +87,11 @@ const state = {
     {
       url: 'https://github.com/ndelvalle/v-blur',
       title: 'v-blur'
+    },
+    {
+      url: 'https://vue-select.org/',
+      title: 'vue-select',
+      desc: 'stylable select dropdown component that is accessible'
     }
   ]
 };

@@ -13,6 +13,10 @@
 
       <input class="focustrap" type="text" placeholder="focus from #1 returns here!"/>
       <br/>
+      <br/>
+      <vue-select placeholder="Choose" :options="options" :clearable="false"/>
+      <br/>
+      <br/>
       <button>Nothing here</button><br/>
       <br/>
       <button @click.prevent="openFocus2Modal">Open modal #2 to see focus trap</button><br/>
@@ -25,12 +29,41 @@ import { mapActions } from 'vuex';
 import FocusLock from 'vue-focus-lock';
 import PageHeader from '@/components/PageHeader';
 import Modal from '../components/TheModal.vue';
+import VueSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
 
 export default {
+  data() {
+    return {
+      options: [
+        {
+          value: '-1',
+          label: 'Select an Item'
+        },
+        {
+          value: 'item01',
+          label: 'Item 1'
+        },
+        {
+          value: 'item02',
+          label: 'Item 2'
+        },
+        {
+          value: 'item03',
+          label: 'Item 3'
+        },
+        {
+          value: 'item04',
+          label: 'Item 4'
+        }
+      ]
+    };
+  },
   components: {
     PageHeader,
     FocusLock,
-    Modal
+    Modal,
+    VueSelect
   },
   methods: {
     ...mapActions(['openModal']),
